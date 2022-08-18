@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../components/styledWidgets/styled_buttons.dart';
+import '../../components/styledWidgets/styled_texts.dart';
+
 class Subscription extends StatelessWidget {
   const Subscription({Key? key}) : super(key: key);
 
@@ -26,29 +29,12 @@ class Subscription extends StatelessWidget {
               ),
             ),
             Column(
-              children: const [
-            Text(
-              'صفحة',
-              textAlign: TextAlign.start,
-              textDirection: TextDirection.rtl,
-              style: TextStyle(
-                height: 0.1,
-                fontFamily: 'NotoBold',
-                color: Colors.white,
-                fontSize: 25,
-              ),
-            ),
-            SizedBox(height: 3),
-            Text(
-              'إدارة الاشتراك',
-              textAlign: TextAlign.start,
-              textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: 'NotoBold',
-                color: Colors.white,
-                fontSize: 25,
-              ),
-            ),
+              children: [
+                customText(context, 'صفحة', 25, false, 0xFFFFFFFF,
+                    align: TextAlign.start, height: 0.1),
+                const SizedBox(height: 3),
+                customText(context, 'إدارة الاشتراك', 25, false, 0xFFFFFFFF,
+                    align: TextAlign.start),
               ],
             ),
             const SizedBox(height: 260),
@@ -75,106 +61,49 @@ class Subscription extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          alignment: Alignment.centerRight,
-                          child: const Text(
-                            'الاشتراك الحالي:',
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              fontSize: 21,
-                              fontWeight: FontWeight.w800,
-                              color: Color(0xFF0268B2),
-                            ),
-                          ),
-                        ),
+                            alignment: Alignment.centerRight,
+                            child: customText(context, 'الاشتراك الحالي:', 21,
+                                false, 0xFF0268B2,
+                                align: TextAlign.start)),
                         const SizedBox(height: 25),
                         Container(
-                          alignment: Alignment.centerRight,
-                          child: const Text(
-                            'الباقة الشهرية',
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF0268B2),
-                            ),
-                          ),
-                        ),
+                            alignment: Alignment.centerRight,
+                            child: customText(context, 'الباقة الشهرية', 19,
+                                false, 0xFF0268B2,
+                                align: TextAlign.start)),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: const EdgeInsets.only(left: 40),
-                              child: const Text(
-                                'ر.س',
-                                textDirection: TextDirection.rtl,
-                                style: TextStyle(
-                                  fontFamily: 'NotoBold',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
-                                ),
-                              ),
-                            ),
+                                margin: const EdgeInsets.only(left: 40),
+                                child: customText(
+                                    context, 'ر.س', 20, false, 0xFF0268B2,
+                                    align: TextAlign.start,
+                                    weight: FontWeight.w800)),
                             const SizedBox(width: 5),
-                            const Text(
-                              '50',
-                              style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 55,
-                                fontWeight: FontWeight.w800,
-                                color: Color(0xFF0268B2),
-                              ),
-                            ),
+                            customText(context, '50', 55, false, 0xFF0268B2,
+                                align: TextAlign.start,
+                                weight: FontWeight.w800),
                             const SizedBox(width: 49),
-                            const SizedBox(
-                              width: 160,
-                              height: 50,
-                              child: Text(
-                                'باقة سائد لايت المحاسبي الشهري',
-                                textDirection: TextDirection.rtl,
-                                style: TextStyle(
-                                  fontFamily: 'NotoBold',
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
-                                ),
-                              ),
-                            )
+                            SizedBox(
+                                width: 160,
+                                height: 50,
+                                child: customText(
+                                    context,
+                                    'باقة سائد لايت المحاسبي الشهري',
+                                    13,
+                                    false,
+                                    0xFF0268B2,
+                                    align: TextAlign.start,
+                                    weight: FontWeight.w800))
                           ],
                         ),
                         const SizedBox(height: 30),
                         Container(
                           margin: const EdgeInsets.only(left: 32),
-                          child: TextButton(
-                            style: ButtonStyle(
-                              elevation: MaterialStateProperty.all(0),
-                              foregroundColor:
-                                  MaterialStateProperty.all(const Color(0xFF0268B2)),
-                              side: MaterialStateProperty.all(
-                                const BorderSide(color: Color(0xFF0268B2), width: 1),
-                              ),
-                              padding: MaterialStateProperty.all(
-                                  const EdgeInsets.fromLTRB(20, 9, 20, 9)),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(7),
-                                ),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/packages');
-                            },
-                            child: const Text(
-                              'تغيير الاشتراك',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'NotoBold',
-                              ),
-                              textDirection: TextDirection.rtl,
-                            ),
-                          ),
+                          child: outlineText(context, 'تغيير الاشتراك', () {
+                            Navigator.pushNamed(context, '/packages');
+                          }, top: 9, right: 20),
                         ),
                       ],
                     ),

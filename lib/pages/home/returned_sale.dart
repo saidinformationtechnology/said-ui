@@ -24,15 +24,12 @@ class _ReturnedSaleState extends State<ReturnedSale> {
         elevation: 0,
         leading: Builder(
           builder: (context) => IconButton(
-            icon: const ImageIcon(
-              AssetImage('assets/icons/menu.png'),
-              color: Color(0xFF0268B2),
-              size: 27,
-            ),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          ),
+              icon: Image.asset('assets/icons/clear1.png'),
+              iconSize: 40,
+              // color: Color(0xFF0268B2),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
         title: const SizedBox(
           width: 300,
@@ -49,14 +46,6 @@ class _ReturnedSaleState extends State<ReturnedSale> {
           ),
         ),
         backgroundColor: Colors.transparent,
-      ),
-      drawer: const SizedBox(
-        width: double.infinity,
-        // color: Colors.transparent,
-        child: Drawer(
-          backgroundColor: Color.fromARGB(210, 255, 255, 255),
-          child: Drawer1(),
-        ),
       ),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../components/styledWidgets/styled_buttons.dart';
+import '../components/styledWidgets/styled_container.dart';
 import '../components/switcher.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -16,30 +18,7 @@ class AddCard extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 18),
-              Container(
-                width: double.infinity,
-                margin: const EdgeInsets.only(right: 35),
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Image.asset('assets/icons/back.png'),
-                  iconSize: 40,
-                  color: const Color(0xFFACF0FF),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const Text(
-                'صفحة الدفع',
-                textAlign: TextAlign.start,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  fontFamily: 'NotoBold',
-                  color: Colors.white,
-                  fontSize: 25,
-                  height: 0.1,
-                ),
-              ),
+              paymentHeader(context),
               const SizedBox(height: 230),
               Container(
                 width: double.infinity,
@@ -272,36 +251,11 @@ class AddCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 19),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 110),
-                        child: TextButton(
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(0),
-                            foregroundColor:
-                                MaterialStateProperty.all(const Color(0xFF0268B2)),
-                            side: MaterialStateProperty.all(
-                              const BorderSide(color: Color(0xFF0268B2), width: 1),
-                            ),
-                            padding: MaterialStateProperty.all(
-                                const EdgeInsets.fromLTRB(14, 7, 14, 7)),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                            ),
-                          ),
-                          onPressed: () {
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                          children:[outlineText(context, 'إضافة البطاقة', () {
                             Navigator.pushNamed(context, '/successPay');
-                          },
-                          child: const Text(
-                            'إضافة البطاقة',
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontFamily: 'NotoBold',
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                        ),
+                          }, top: 9.0, right: 20.0, size:13.0)]
                       ),
                     ],
                   ),

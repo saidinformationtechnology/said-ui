@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/dropdown.dart';
+import 'package:lastsaid/pages/components/styledWidgets/styled_buttons.dart';
+
+import '../components/styledWidgets/styled_container.dart';
 
 class MonthlyPackage extends StatelessWidget {
   const MonthlyPackage({Key? key}) : super(key: key);
@@ -15,30 +18,7 @@ class MonthlyPackage extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 18),
-              Container(
-                width: double.infinity,
-                margin: const EdgeInsets.only(right: 35),
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Image.asset('assets/icons/back.png'),
-                  iconSize: 40,
-                  color: const Color(0xFFACF0FF),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const Text(
-                'صفحة الدفع',
-                textAlign: TextAlign.start,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  height: 0.1,
-                  fontFamily: 'NotoBold',
-                  color: Colors.white,
-                  fontSize: 25,
-                ),
-              ),
+              paymentHeader(context),
               const SizedBox(height: 230),
               Container(
                 width: double.infinity,
@@ -243,35 +223,9 @@ class MonthlyPackage extends StatelessWidget {
                           const SizedBox(height: 30),
                           Container(
                             margin: const EdgeInsets.only(left: 32),
-                            child: TextButton(
-                              style: ButtonStyle(
-                                elevation: MaterialStateProperty.all(0),
-                                foregroundColor: MaterialStateProperty.all(
-                                    const Color(0xFF0268B2)),
-                                side: MaterialStateProperty.all(
-                                  const BorderSide(
-                                      color: Color(0xFF0268B2), width: 1),
-                                ),
-                                padding: MaterialStateProperty.all(
-                                    const EdgeInsets.fromLTRB(20, 9, 20, 9)),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(7),
-                                  ),
-                                ),
-                              ),
-                              onPressed: () {
+                            child: outlineText(context, 'إتمام الدفع', () {
                                 Navigator.pushNamed(context, '/successPay');
-                              },
-                              child: const Text(
-                                'إتمام الدفع',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontFamily: 'NotoBold',
-                                ),
-                                textDirection: TextDirection.rtl,
-                              ),
-                            ),
+                              }, top:9, right:20)
                           ),
                         ],
                       ),

@@ -2,11 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:lastsaid/pages/home/drawers/purchases_drawer.dart';
-import 'package:lastsaid/pages/home/drawers/sales_drawer.dart';
 
 import 'package:lastsaid/pages/home/purchases/purchase_bill.dart';
 import 'package:lastsaid/pages/home/sales/sale_bill.dart';
+
+import '../components/styledWidgets/styled_container.dart';
+import 'drawers/purchases_drawer.dart';
+import 'drawers/sales_drawer.dart';
 
 class UserHome extends StatefulWidget {
   const UserHome({Key? key}) : super(key: key);
@@ -79,9 +81,9 @@ class _UserHomeState extends State<UserHome> {
               child: Column(
                 children: [
                   if (currentIndex == 1) ...[
-                    const Drawer1(),
+                    const SalesDrawer(),
                   ] else ...[
-                    const Drawer2(),
+                    const PurchasesDrawer(),
                   ]
                 ],
               )),
@@ -126,20 +128,10 @@ class _UserHomeState extends State<UserHome> {
                 ),
               ),
               const SizedBox(height: 13),
-              Container(
-                width: double.infinity,
+              CustomContainer(
+               width: double.infinity,
                 height: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 3,
-                      color: Color(0x33000000),
-                      offset: Offset(0, 1),
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(10),
-                ),
+                round:10,
                 child: TextField(
                   style: TextStyle(
                     fontFamily: 'NotoBold',
@@ -152,7 +144,7 @@ class _UserHomeState extends State<UserHome> {
                   decoration: InputDecoration(
                       isDense: true, // Added this
                       contentPadding: const EdgeInsets.only(
-                          bottom: 0, top: 6, left: 7, right: 10), // Added this
+                          bottom: 0, top: 6, left: 7, right: 8), // Added this
                       hintText: '... بحث باسم المنتج او رقم الباركود',
                       hintStyle: TextStyle(
                           fontFamily: 'NotoBold',

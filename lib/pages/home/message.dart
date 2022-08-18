@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/Dilalogs/dialogs.dart';
+import 'package:lastsaid/pages/components/styledWidgets/styled_buttons.dart';
+
+import '../components/styledWidgets/styled_inputs.dart';
+import '../components/styledWidgets/styled_texts.dart';
 
 class Message extends StatelessWidget {
   const Message({Key? key}) : super(key: key);
@@ -54,25 +58,12 @@ class Message extends StatelessWidget {
                     width: double.infinity,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        Text(
-                          'مرحبا ...',
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Colors.white,
-                            fontSize: 43,
-                          ),
-                        ),
-                        Text(
-                          'كيف يمكننا مساعدتك؟',
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
+                      children: [
+                        customText(context, 'مرحبا ...', 43, false, 0xFFFFFFFF,
+                            align: TextAlign.start),
+                        customText(context, 'كيف يمكننا مساعدتك؟', 16, false,
+                            0xFFFFFFFF,
+                            align: TextAlign.start),
                       ],
                     ),
                   ),
@@ -86,116 +77,56 @@ class Message extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const Text(
-                      'الاسم:',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'NotoBold',
-                        color: Color(0xFF0268B2),
-                        fontSize: 15,
-                      ),
-                    ),
+                    customText(context, 'الاسم:', 15, false, 0xFF0268B2,
+                        align: TextAlign.start),
                     const SizedBox(height: 5),
-                    Container(
-                      width: double.infinity,
-                      height: 43,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF9F9F9),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: const TextField(
-                        textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
+                    inputField(context,
+                        height: 43.0,
+                        color: 0xFFF9F9F9,
+                        round: 18.0,
+                        shadow: false,
+                        border: false,
+                        fontsize: 13.2,
+                        top: 8),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                      'البريد الإلكتروني:',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'NotoBold',
-                        color: Color(0xFF0268B2),
-                        fontSize: 15,
-                      ),
-                    ),
+                    customText(
+                        context, 'البريد الإلكتروني:', 15, false, 0xFF0268B2,
+                        align: TextAlign.start),
                     const SizedBox(height: 5),
-                    Container(
-                      width: double.infinity,
-                      height: 43,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF9F9F9),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: const TextField(
-                        textInputAction: TextInputAction.next,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
+                    inputField(context,
+                        height: 43.0,
+                        color: 0xFFF9F9F9,
+                        round: 18.0,
+                        shadow: false,
+                        border: false,
+                        fontsize: 13.2,
+                        top: 8,
+                        type: TextInputType.emailAddress),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                      'الرسالة:',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'NotoBold',
-                        color: Color(0xFF0268B2),
-                        fontSize: 15,
-                      ),
-                    ),
+                    customText(context, 'الرسالة:', 15, false, 0xFF0268B2,
+                        align: TextAlign.start),
                     const SizedBox(height: 5),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF9F9F9),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: const TextField(
-                        maxLines: 8,
-                        textInputAction: TextInputAction.done,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
+                    inputField(context,
+                        height: 175.0,
+                        color: 0xFFF9F9F9,
+                        round: 18.0,
+                        shadow: false,
+                        border: false,
+                        fontsize: 13.2,
+                        top: 8.0,
+                        max: 8,
+                        action: TextInputAction.done),
                     const SizedBox(height: 10),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(0),
-                        backgroundColor: MaterialStateProperty.all(
-                            const Color.fromRGBO(50, 185, 215, 1)),
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                        padding: MaterialStateProperty.all(
-                            const EdgeInsets.fromLTRB(31, 9, 31, 9)),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(11),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
+                    nextBtn(
+                      context,
+                      'إرسال',
+                      () {
                         Dialogs.messageDialog(context);
                       },
-                      child: Container(
-                        height: 33,
-                        width: double.infinity,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'إرسال',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'NotoBold',
-                              color: Colors.white),
-                        ),
-                      ),
                     ),
                   ],
                 ),

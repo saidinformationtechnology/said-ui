@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/Dilalogs/dilalogs_widgets.dart';
 
+import '../styledWidgets/styled_texts.dart';
+
 class Dialogs {
   static Future<void> messageDialog(parentContext) {
     return showDialog(
@@ -10,7 +12,8 @@ class Dialogs {
         return BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: AlertDialog(
-            content: SizedBox(
+            content: Container(
+              
               height: 80,
               child: Column(
                 children: const [
@@ -317,7 +320,7 @@ class Dialogs {
     );
   }
 
-  static Future<void> addProductDialog(parentContext) {
+  static Future<void> addProductDialog(parentContext, String text) {
     return showDialog(
       context: parentContext,
       builder: (context) {
@@ -340,15 +343,7 @@ class Dialogs {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 11),
                     width: double.infinity,
-                    child: const Text(
-                      'تمت إضافة بيانات المنتج',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontFamily: 'NotoBold',
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    child:customText(context, text, 17, false, 0xFFFFFFFF, weight: FontWeight.w800, align: TextAlign.center),
                   ),
                   SizedBox(
                     width: double.infinity,

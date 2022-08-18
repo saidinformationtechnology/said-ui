@@ -130,22 +130,18 @@ class ProductInfo extends StatelessWidget {
                                     children: [
                                       numberInputField(context),
                                       const SizedBox(width: 4),
-                                      const Text(
-                                        'سعر البيع:',
-                                        textDirection: TextDirection.rtl,
-                                        style:TStyle.tstyle
-                                      ),
+                                      const Text('سعر البيع:',
+                                          textDirection: TextDirection.rtl,
+                                          style: TStyle.tstyle),
                                     ],
                                   ),
                                   Row(
                                     children: [
                                       numberInputField(context),
                                       const SizedBox(width: 4),
-                                      const Text(
-                                        'سعر الشراء:',
-                                        textDirection: TextDirection.rtl,
-                                        style:TStyle.tstyle
-                                      ),
+                                      const Text('سعر الشراء:',
+                                          textDirection: TextDirection.rtl,
+                                          style: TStyle.tstyle),
                                     ],
                                   ),
                                 ],
@@ -188,7 +184,8 @@ class ProductInfo extends StatelessWidget {
                                     ),
                                   ),
                                   onPressed: () {
-                                    Dialogs.addProductDialog(context);
+                                    Dialogs.addProductDialog(
+                                        context, 'تمت إضافة بيانات المنتج');
                                   },
                                   child: Container(
                                     height: 33,

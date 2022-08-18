@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/styledWidgets/styled_texts.dart';
+
 class TaskInfo extends StatelessWidget {
   const TaskInfo({Key? key}) : super(key: key);
 
@@ -85,17 +87,11 @@ class TaskInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         width: 100,
-                        child: Text(
-                          '23,568',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              color: Color(0xFF0268B2),
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
-                        ),
+                        child: customText(
+                            context, '23,568', 19, false, 0xFF0268B2,
+                            align: TextAlign.start, weight: FontWeight.bold),
                       ),
                       Container(
                           margin: const EdgeInsets.only(left: 15),
@@ -104,16 +100,9 @@ class TaskInfo extends StatelessWidget {
                             color: Color.fromARGB(51, 132, 130, 130),
                           ),
                           height: 80),
-                      const Text(
-                        'إجمالي  الإيرادات',
-                        textAlign: TextAlign.end,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Color(0xFF0268B2),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
+                      customText(
+                          context, 'إجمالي  الإيرادات', 17, false, 0xFF0268B2,
+                          align: TextAlign.start, weight: FontWeight.bold),
                     ],
                   ),
                 ),
@@ -141,18 +130,11 @@ class TaskInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const SizedBox(
-                        // color:Colors.red,
+                      SizedBox(
                         width: 100,
-                        child: Text(
-                          '23,568',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              color: Color(0xFF0268B2),
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
-                        ),
+                        child: customText(
+                            context, '23,568', 19, false, 0xFF0268B2,
+                            align: TextAlign.start, weight: FontWeight.bold),
                       ),
                       Container(
                           margin: const EdgeInsets.only(left: 29),
@@ -161,45 +143,15 @@ class TaskInfo extends StatelessWidget {
                             color: Color.fromARGB(51, 132, 130, 130),
                           ),
                           height: 80),
-                      const Text(
-                        'إجمالي المصروفات',
-                        textAlign: TextAlign.end,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Color(0xFF0268B2),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
+                      customText(
+                          context, 'إجمالي المصروفات', 17, false, 0xFF0268B2,
+                          align: TextAlign.start, weight: FontWeight.bold),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  const Icon(
-                    Icons.print_sharp,
-                    color: Colors.white,
-                    size: 24,
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                    child: InkWell(
-                      onTap: () {},
-                      child: const Text(
-                        'طباعة',
-                        style: TextStyle(
-                          fontFamily: 'NotoBold',
-                          color: Colors.white,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              printIcon(context),
               const SizedBox(height: 30),
               Container(
                 width: double.infinity,
@@ -220,18 +172,12 @@ class TaskInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         // color:Colors.red,
                         width: 100,
-                        child: Text(
-                          '23,568',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              color: Color(0xFF0268B2),
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
-                        ),
+                        child: customText(
+                            context, '23,568', 19, false, 0xFF0268B2,
+                            align: TextAlign.start, weight: FontWeight.bold),
                       ),
                       Container(
                           width: 0.8,
@@ -239,49 +185,40 @@ class TaskInfo extends StatelessWidget {
                             color: Color.fromARGB(51, 132, 130, 130),
                           ),
                           height: 80),
-                      const Text(
-                        'إجمالي الضريبة',
-                        textAlign: TextAlign.end,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Color(0xFF0268B2),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
+                      customText(
+                          context, 'إجمالي الضريبة', 17, false, 0xFF0268B2,
+                          align: TextAlign.start, weight: FontWeight.bold),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  const Icon(
-                    Icons.print_sharp,
-                    color: Colors.white,
-                    size: 24,
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                    child: InkWell(
-                      onTap: () {},
-                      child: const Text(
-                        'طباعة',
-                        style: TextStyle(
-                          fontFamily: 'NotoBold',
-                          color: Colors.white,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              printIcon(context),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+Widget printIcon(BuildContext context) {
+  return InkWell(
+    onTap: () {},
+    child: Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        const Icon(
+          Icons.print_sharp,
+          color: Colors.white,
+          size: 24,
+        ),
+        Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+          child: customText(context, 'طباعة', 15, false, 0xFFFFFFFF,
+              align: TextAlign.start),
+        ),
+      ],
+    ),
+  );
 }

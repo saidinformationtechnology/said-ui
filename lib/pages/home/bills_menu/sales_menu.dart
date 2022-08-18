@@ -27,15 +27,12 @@ class _SalesMenuState extends State<SalesMenu> {
         elevation: 0,
         leading: Builder(
           builder: (context) => IconButton(
-            icon: const ImageIcon(
-              AssetImage('assets/icons/menu.png'),
-              color: Color(0xFF0268B2),
-              size: 27,
-            ),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          ),
+              icon: Image.asset('assets/icons/clear1.png'),
+              iconSize: 40,
+              // color: Color(0xFF0268B2),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
         title: const SizedBox(
           width: 300,
@@ -52,20 +49,6 @@ class _SalesMenuState extends State<SalesMenu> {
           ),
         ),
         backgroundColor: Colors.transparent,
-      ),
-      drawer: SizedBox(
-        width: double.infinity,
-        // color: Colors.transparent,
-        child: Drawer(
-          backgroundColor: const Color.fromARGB(210, 255, 255, 255),
-          child: BackdropFilter(
-            filter: ui.ImageFilter.blur(
-              sigmaX: 5.0,
-              sigmaY: 5.0,
-            ),
-            child: const Drawer1(),
-          ),
-        ),
       ),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),

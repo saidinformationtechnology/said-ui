@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Drawer1 extends StatelessWidget {
-  const Drawer1({Key? key}) : super(key: key);
+class SalesDrawer extends StatelessWidget {
+  const SalesDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

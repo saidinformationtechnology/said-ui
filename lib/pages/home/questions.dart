@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
+import '../components/Dilalogs/dialogs.dart';
+import '../components/styledWidgets/styled_texts.dart';
 
 class Questions extends StatelessWidget {
   const Questions({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +44,7 @@ class Questions extends StatelessWidget {
                         textAlign: TextAlign.start,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                        height:3,
+                          height: 3,
                           fontFamily: 'NotoBold',
                           color: Color.fromRGBO(50, 185, 215, 1),
                           fontSize: 22,
@@ -49,233 +53,14 @@ class Questions extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(right: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        child: const Text(
-                          'ماهو تطبيق Said Light ؟',
-                          textAlign: TextAlign.start,
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Colors.white,
-                            fontSize: 17,
-                          ),
-                        ),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: Text(
-                                  textDirection: TextDirection.rtl,
-                                  'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.',
-                                  style: TextStyle(
-                                    fontFamily: 'NotoRegular',
-                                    color: Color(0xFF0268B2),
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Exit',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Color.fromRGBO(
-                                                50, 185, 215, 1))),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
-                      const Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-                          child: Icon(Icons.minimize_rounded,
-                              color: Colors.white, size: 30)),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(right: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        child: const Text(
-                          'ماهي خدمات هذا التطبيق؟',
-                          textAlign: TextAlign.start,
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: Text(
-                                  textDirection: TextDirection.rtl,
-                                  'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.',
-                                  style: TextStyle(
-                                    fontFamily: 'NotoRegular',
-                                    color: Color(0xFF0268B2),
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Exit',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Color.fromRGBO(
-                                                50, 185, 215, 1))),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
-                      const Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-                          child: Icon(Icons.minimize_rounded,
-                              color: Colors.white, size: 30)),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(right: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        child: const Text(
-                          'هل بياناتي آمنة؟',
-                          textAlign: TextAlign.start,
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content:  Text(
-                                  textDirection: TextDirection.rtl,
-                                  'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.',
-                                  style: TextStyle(
-                                    fontFamily: 'NotoRegular',
-                                    color: Color(0xFF0268B2),
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Exit',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Color.fromRGBO(
-                                                50, 185, 215, 1))),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
-                      const Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-                          child: Icon(Icons.minimize_rounded,
-                              color: Colors.white, size: 30)),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(right: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        child: const Text(
-                          'هل يمكنني استرداد المبلغ المدفوع؟',
-                          textAlign: TextAlign.start,
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content:  Text(
-                                  textDirection: TextDirection.rtl,
-                                  'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.',
-                                  style: TextStyle(
-                                    fontFamily: 'NotoRegular',
-                                    color: Color(0xFF0268B2),
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('Exit',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Color.fromRGBO(
-                                                50, 185, 215, 1))),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
-                      const Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-                          child: Icon(Icons.minimize_rounded,
-                              color: Colors.white, size: 30)),
-                    ],
-                  ),
-                ),
+                questionTab(context, 'ماهو تطبيق Said Light ؟',
+                    'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.', true),
+                questionTab(context, 'ماهي خدمات هذا التطبيق؟',
+                    'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.', true),
+                questionTab(context, 'هل بياناتي آمنة؟',
+                    'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.', true),
+                questionTab(context, 'هل يمكنني استرداد المبلغ المدفوع؟',
+                    'Said Light هو برنامج محاسبي مبسّط لإدارة الحسابات.', true),
                 const SizedBox(height: 50),
                 Container(
                   width: double.infinity,
@@ -293,108 +78,11 @@ class Questions extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.only(right: 30),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
-                          Text(
-                            'الاسم',
-                            style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                          Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 10, 10, 10),
-                              child: Icon(Icons.brightness_1, size: 21)),
-                        ],
-                      ),
-                    ),
-                    Container(
-                        margin: const EdgeInsets.only(right: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: const [
-                            Text(
-                              'الإيميل',
-                              style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                            Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5, 10, 10, 10),
-                                child: Icon(Icons.brightness_1, size: 21)),
-                          ],
-                        )),
-                    Container(
-                        margin: const EdgeInsets.only(right: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: const [
-                            Text(
-                              'رقم الجوال',
-                              style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                            Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5, 10, 10, 10),
-                                child: Icon(Icons.brightness_1, size: 21)),
-                          ],
-                        )),
-                    Container(
-                        margin: const EdgeInsets.only(right: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: const [
-                            Text(
-                              'المدينة',
-                              style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                            Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5, 10, 10, 10),
-                                child: Icon(Icons.brightness_1, size: 21)),
-                          ],
-                        )),
-                    Container(
-                      margin: const EdgeInsets.only(right: 30),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
-                          Text(
-                            'النشاط',
-                            style: TextStyle(
-                              fontFamily: 'NotoBold',
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                          Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 10, 10, 10),
-                              child: Icon(Icons.brightness_1, size: 21)),
-                        ],
-                      ),
-                    ),
+                    questionTab(context, 'الاسم', '', false),
+                    questionTab(context, 'الإيميل', '', false),
+                    questionTab(context, 'رقم الجوال', '', false),
+                    questionTab(context, 'المدينة', '', false),
+                    questionTab(context, 'النشاط', '', false),
                   ],
                 )
               ],
@@ -404,4 +92,36 @@ class Questions extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget questionTab(
+    BuildContext context, String text, String content, bool tab) {
+  return Container(
+    width: double.infinity,
+    padding: const EdgeInsets.only(right: 30),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        if (tab) ...[
+          TextButton(
+            child: customText(context, text, 17, false, 0xFFFFFFFF,
+                align: TextAlign.start),
+            onPressed: () {
+              Dialogs.addProductDialog(context, content);
+            },
+          ),
+          const Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+              child:
+                  Icon(Icons.minimize_rounded, color: Colors.white, size: 30)),
+        ] else ...[
+          customText(context, text, 18, false, 0xFFFFFFFF,
+              align: TextAlign.start),
+          Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(5, 10, 10, 10),
+              child: Icon(Icons.brightness_1, size: 21)),
+        ]
+      ],
+    ),
+  );
 }

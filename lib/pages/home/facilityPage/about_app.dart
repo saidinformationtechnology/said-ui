@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../components/styledWidgets/styled_texts.dart';
+
 class AboutApp extends StatelessWidget {
   const AboutApp({Key? key}) : super(key: key);
 
@@ -33,27 +35,9 @@ class AboutApp extends StatelessWidget {
             const SizedBox(height: 150),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Text(
-                  'تم إصدار هذا البرنامج',
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                    fontFamily: 'NotoBold',
-                    fontSize: 17,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  'من فريق سائد لتقنية المعلومات',
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                    fontFamily: 'NotoBold',
-                    fontSize: 17,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
-                  ),
-                ),
+              children: [
+                customText(context,'تم إصدار هذا البرنامج', 17, false, 0xFFFFFFFF),
+                customText(context, 'من فريق سائد لتقنية المعلومات', 17, false, 0xFFFFFFFF),
               ],
             )
           ],

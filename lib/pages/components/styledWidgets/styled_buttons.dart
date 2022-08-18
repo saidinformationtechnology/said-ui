@@ -84,3 +84,37 @@ Widget textBtn(BuildContext context, String text, Function doSomething) {
     ),
   );
 }
+
+Widget outlineText(BuildContext context, String text, Function doSomething, {
+  double top = 7.0,
+  double right = 14.0,
+  double size = 14.0
+}) {
+  return TextButton(
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(0),
+      foregroundColor: MaterialStateProperty.all(const Color(0xFF0268B2)),
+      side: MaterialStateProperty.all(
+        const BorderSide(color: Color(0xFF0268B2), width: 1),
+      ),
+      padding:
+          MaterialStateProperty.all(EdgeInsets.fromLTRB(right, top, right, top)),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
+    ),
+    onPressed: () {
+      doSomething();
+    },
+    child: Text(
+      text,
+      style: TextStyle(
+        fontSize: size,
+        fontFamily: 'NotoBold',
+      ),
+      textDirection: TextDirection.rtl,
+    ),
+  );
+}

@@ -43,13 +43,14 @@ Widget saidLogo(BuildContext context, int color) {
 Widget customText(BuildContext context, String text, double fontSize,
     bool decoration, int color,
     
-    {FontWeight weight = FontWeight.normal, TextAlign align = TextAlign.end}) {
+    {FontWeight weight = FontWeight.normal, TextAlign align = TextAlign.end, TextDirection dir = TextDirection.rtl,  dynamic height = null}) {
   return Text(
     text,
-    textDirection: TextDirection.rtl,
+    textDirection: dir,
     textAlign: align,
     style: TextStyle(
         fontFamily: 'NotoBold',
+        height:height,
         color: Color(color),
         fontSize: fontSize,
         fontWeight: weight,

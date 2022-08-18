@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../components/styledWidgets/styled_buttons.dart';
+
 class Payment extends StatelessWidget {
   const Payment({Key? key}) : super(key: key);
 
@@ -226,35 +228,11 @@ class Payment extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                TextButton(
-                                  child: Text(
-                                    'الإنتقال إلى الصفحة الرئيسية',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontFamily: 'NotoBold',
-                                    ),
-                                    textDirection: TextDirection.rtl,
-                                  ),
-                                  style: ButtonStyle(
-                                    elevation: MaterialStateProperty.all(0),
-                                    foregroundColor: MaterialStateProperty.all(
-                                        Color(0xFF0268B2)),
-                                    side: MaterialStateProperty.all(
-                                      BorderSide(
-                                          color: Color(0xFF0268B2), width: 1),
-                                    ),
-                                    padding: MaterialStateProperty.all(
-                                        EdgeInsets.fromLTRB(10, 9, 10, 9)),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(7),
-                                      ),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/userHome');
-                                  },
-                                ),
+                                outlineText(
+                                    context, 'الإنتقال إلى الصفحة الرئيسية',
+                                    () {
+                                  Navigator.pushNamed(context, '/userHome');
+                                }, top: 9, right: 10)
                               ],
                             ),
                           ],
