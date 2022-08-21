@@ -17,9 +17,7 @@ class Pass extends StatefulWidget {
 class PassState extends State<Pass> {
   @override
   Widget build(context) {
-    return MaterialApp(
-      title: 'said Lite - Login',
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Color(0xFF0268B2),
         body: SafeArea(
           child: Column(
@@ -149,7 +147,6 @@ class PassState extends State<Pass> {
             ],
           ),
         ),
-      ),
     );
   }
 

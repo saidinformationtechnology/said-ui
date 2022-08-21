@@ -116,7 +116,7 @@ Widget supportBtn(
             const SizedBox(width: 13),
             ImageIcon(
               AssetImage(icon),
-              color: Color(0xFF0268B2),
+              color: const Color(0xFF0268B2),
               size: 30,
             ),
           ],

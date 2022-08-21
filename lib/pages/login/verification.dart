@@ -22,7 +22,7 @@ class Verification extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     '+966 555 111 999',
                     style: TextStyle(
                       fontFamily: 'NotoBold',
@@ -31,7 +31,7 @@ class Verification extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(width: 7),
+                  const SizedBox(width: 7),
                   customText(context, 'إلى الرقم', 17, false, 0xFFFFFFFF),
                 ],
               ),

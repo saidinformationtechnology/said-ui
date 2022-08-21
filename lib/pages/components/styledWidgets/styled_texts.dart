@@ -12,7 +12,7 @@ Widget saidLogo(BuildContext context, int color) {
           fontWeight: FontWeight.bold,
           shadows: <Shadow>[
             Shadow(
-              offset: Offset(3.0, 2.0),
+              offset: const Offset(3.0, 2.0),
               blurRadius: 3.0,
               color: Color(color),
             ),
@@ -29,7 +29,7 @@ Widget saidLogo(BuildContext context, int color) {
           height: 1.5,
           shadows: <Shadow>[
             Shadow(
-              offset: Offset(3.0, 2.0),
+              offset: const Offset(3.0, 2.0),
               blurRadius: 3.0,
               color: Color(color),
             ),
@@ -43,7 +43,7 @@ Widget saidLogo(BuildContext context, int color) {
 Widget customText(BuildContext context, String text, double fontSize,
     bool decoration, int color,
     
-    {FontWeight weight = FontWeight.normal, TextAlign align = TextAlign.end, TextDirection dir = TextDirection.rtl,  dynamic height = null}) {
+    {FontWeight weight = FontWeight.normal, TextAlign align = TextAlign.end, TextDirection dir = TextDirection.rtl,  dynamic height}) {
   return Text(
     text,
     textDirection: dir,

@@ -12,9 +12,7 @@ class CreatePass extends StatefulWidget {
 class CreatePassState extends State<CreatePass> {
   @override
   Widget build(context) {
-    return MaterialApp(
-      title: 'said Lite - Login',
-      home: Directionality(
+    return  Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
           backgroundColor: Color(0xFF0268B2),
@@ -72,7 +70,6 @@ class CreatePassState extends State<CreatePass> {
             ),
           ),
         ),
-      ),
     );
   }
 

@@ -20,8 +20,7 @@ import 'pages/login/facility_input.dart';
 import 'pages/login/phone_input.dart';
 import 'pages/login/terms.dart';
 import 'pages/login/verification.dart';
-import 'pages/starter/luncher.dart';
-import 'pages/starter/welcome_page.dart';
+import 'pages/starter/splash.dart';
 
 void main() => runApp(
       const MyApp(),
@@ -38,8 +37,7 @@ class MyApp extends StatelessWidget {
       routes: {
 
         // -----  Home routes ----
-        '/': (context) => const LuncherPage(),
-        '/welcome': (context) => const WelcomePage(),
+        '/': (context) => const Splash(),
         '/subscription': (context) => const Subscription(),
 
         // ----- User Home routes ----

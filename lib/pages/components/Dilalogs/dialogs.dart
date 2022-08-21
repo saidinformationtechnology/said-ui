@@ -12,7 +12,7 @@ class Dialogs {
         return BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: AlertDialog(
-            content: Container(
+            content: SizedBox(
               
               height: 80,
               child: Column(

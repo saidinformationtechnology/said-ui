@@ -248,7 +248,7 @@ Widget dottedInput(BuildContext context, int color, String text) {
               ],
             ),
             ImageIcon(
-              AssetImage('assets/icons/attach.png'),
+              const AssetImage('assets/icons/attach.png'),
               size: 19,
               color: Color(color),
             ),

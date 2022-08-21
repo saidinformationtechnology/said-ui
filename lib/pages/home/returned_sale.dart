@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:lastsaid/pages/home/drawers/sales_drawer.dart';
 import 'package:lastsaid/pages/home/sales/sales_widget.dart';
 
 class ReturnedSale extends StatefulWidget {

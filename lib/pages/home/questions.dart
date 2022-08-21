@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import '../components/Dilalogs/dialogs.dart';
@@ -117,7 +115,7 @@ Widget questionTab(
         ] else ...[
           customText(context, text, 18, false, 0xFFFFFFFF,
               align: TextAlign.start),
-          Padding(
+          const Padding(
               padding: EdgeInsetsDirectional.fromSTEB(5, 10, 10, 10),
               child: Icon(Icons.brightness_1, size: 21)),
         ]

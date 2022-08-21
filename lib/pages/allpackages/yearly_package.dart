@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lastsaid/pages/components/dropdown.dart';
-
 import '../components/styledWidgets/styled_container.dart';
 import 'daliy_package.dart';
 

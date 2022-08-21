@@ -249,7 +249,7 @@ Widget dCoulmn(BuildContext context, double width, double fontSize, String text)
       style: TextStyle(
         fontFamily: 'NotoBold',
         fontSize: fontSize,
-        color: Color.fromRGBO(50, 185, 215, 1),
+        color: const Color.fromRGBO(50, 185, 215, 1),
       ),
     ),
   );
@@ -261,7 +261,7 @@ Widget resColumn(BuildContext context, String text) {
     alignment: Alignment.center,
     child: Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
         fontFamily: 'NotoBold',
         fontSize: 10,
         color: Color.fromRGBO(50, 185, 215, 1),
@@ -276,7 +276,7 @@ Widget resCell(BuildContext context, double num) {
     alignment: Alignment.center,
     child: Text(
       num.toString(),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 'NotoBold',
           fontSize: 13.5,
           height: 2.7,
@@ -318,7 +318,7 @@ Widget taskPrice(BuildContext context, double price) {
         ),
         Text(
           price.toString(),
-          style: TextStyle(
+          style: const TextStyle(
               fontFamily: 'NotoBold',
               fontSize: 13.5,
               height: 2.7,
@@ -337,7 +337,7 @@ Widget taskNum(BuildContext context, int num) {
     alignment: Alignment.center,
     child: Text(
       num.toString(),
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 'NotoBold',
           fontSize: 13,
           height: 2.7,
@@ -353,7 +353,7 @@ Widget taskId(BuildContext context, int id) {
     alignment: Alignment.center,
     child: Text(
       '#$id',
-      style: TextStyle(
+      style: const TextStyle(
           fontFamily: 'NotoBold',
           fontSize: 13,
           fontWeight: FontWeight.w600,
