@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/Dilalogs/dialogs.dart';
 import 'package:lastsaid/pages/components/styledWidgets/styled_inputs.dart';
 
-import '../../components/switcher.dart';
+import '../components/switcher.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({Key? key}) : super(key: key);

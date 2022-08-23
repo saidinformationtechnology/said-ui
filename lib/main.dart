@@ -9,7 +9,7 @@ import 'pages/allpackages/packages.dart';
 import 'pages/allpackages/paymentsuccess.dart';
 import 'pages/allpackages/yearly_package.dart';
 import 'pages/components/bottom_navigator.dart';
-import 'pages/home/Product/product_info.dart';
+import 'pages/home/product_info.dart';
 import 'pages/home/bills_menu/sales_menu.dart';
 import 'pages/home/facilityPage/about_app.dart';
 import 'pages/home/facilityPage/subscription_managment.dart';

@@ -87,11 +87,8 @@ Widget textBtn(BuildContext context, String text, Function doSomething) {
   );
 }
 
-Widget outlineText(BuildContext context, String text, Function doSomething, {
-  double top = 7.0,
-  double right = 14.0,
-  double size = 14.0
-}) {
+Widget outlineText(BuildContext context, String text, Function doSomething,
+    {double top = 7.0, double right = 14.0, double size = 14.0}) {
   return TextButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.all(0),
@@ -99,8 +96,8 @@ Widget outlineText(BuildContext context, String text, Function doSomething, {
       side: MaterialStateProperty.all(
         const BorderSide(color: Color(0xFF0268B2), width: 1),
       ),
-      padding:
-          MaterialStateProperty.all(EdgeInsets.fromLTRB(right, top, right, top)),
+      padding: MaterialStateProperty.all(
+          EdgeInsets.fromLTRB(right, top, right, top)),
       shape: MaterialStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),
@@ -118,5 +115,51 @@ Widget outlineText(BuildContext context, String text, Function doSomething, {
       ),
       textDirection: TextDirection.rtl,
     ),
+  );
+}
+
+Widget btnsGroup(BuildContext context, String btn1, String btn2) {
+  return Row(
+    children: [
+      ElevatedButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all(Size.zero),
+          elevation: MaterialStateProperty.all(2),
+          backgroundColor:
+              MaterialStateProperty.all(Color.fromRGBO(50, 185, 215, 1)),
+          foregroundColor: MaterialStateProperty.all(Colors.white),
+          padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(50, 6, 50, 6)),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+              ),
+            ),
+          ),
+        ),
+        child:customText(context, btn2, 11, false, 0xFFFFFFFF)
+      ),
+      ElevatedButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all(Size.zero),
+          elevation: MaterialStateProperty.all(2),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          foregroundColor: MaterialStateProperty.all(Color(0xFF0268B2)),
+          padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(49, 6, 49, 6)),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+            ),
+          ),
+        ),
+        child:customText(context, btn1, 11, false, 0xFF0268B2)
+      ),
+    ],
   );
 }

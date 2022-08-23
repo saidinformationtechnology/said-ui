@@ -5,10 +5,11 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:lastsaid/pages/components/Dilalogs/dilalogs_widgets.dart';
 import 'package:lastsaid/pages/components/number_roller.dart';
+import 'package:lastsaid/pages/components/styledWidgets/styled_container.dart';
 import 'package:lastsaid/pages/home/sales/bill_class.dart';
 import 'package:lastsaid/pages/home/sales/sale_list.dart';
-
-import 'dart:ui' as ui;
+import '../../components/Dilalogs/dialogs.dart';
+import '../../components/styledWidgets/styled_texts.dart';
 
 class Sales extends StatefulWidget {
   const Sales({Key? key}) : super(key: key);
@@ -20,146 +21,35 @@ class Sales extends StatefulWidget {
 class _SalesState extends State<Sales> {
   List<Item> items = List.of(allItems);
   void deleteDialog(int index) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return BackdropFilter(
-              filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: AlertDialog(
-                backgroundColor: const Color(0xff32BAD7),
-                insetPadding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-                title: const Text(
-                  'هل تريد حذف العنصر من الفاتورة ؟',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    height: 1.5,
-                    color: Colors.white,
-                    fontFamily: 'NotoBold',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                actions: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 11),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(const Color(0xFF0268B2)),
-                              foregroundColor:
-                                  MaterialStateProperty.all(Colors.white),
-                              padding: MaterialStateProperty.all(
-                                  const EdgeInsets.fromLTRB(50, 5, 50, 5)),
-                              shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(11),
-                              )),
-                            ),
-                            child: const Text(
-                              'لا',
-                              style: TextStyle(
-                                fontSize: 13.0,
-                                fontFamily: 'NotoBold',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context, true);
-                            },
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(const Color(0xFF0268B2)),
-                              foregroundColor:
-                                  MaterialStateProperty.all(Colors.white),
-                              padding: MaterialStateProperty.all(
-                                  const EdgeInsets.fromLTRB(50, 5, 50, 5)),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(11),
-                                ),
-                              ),
-                            ),
-                            child: const Text(
-                              'نعم',
-                              style: TextStyle(
-                                fontSize: 13.0,
-                                fontFamily: 'NotoBold',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            onPressed: () {
-                              setState(() => items.removeAt(index));
-                              Navigator.pop(context, false);
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ));
-        });
+    Dialogs.deleteDialog(context, index, () {
+      setState(() => items.removeAt(index));
+      Navigator.pop(context, false);
+    }, () {
+      Navigator.pop(context, true);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final ScrollController controller = ScrollController();
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.grey.shade200),
-        color: Colors.white,
-        boxShadow: const [
-          BoxShadow(
-            blurRadius: 3,
-            color: Color(0x33000000),
-            offset: Offset(0, 1),
-          ),
-        ],
-      ),
+    return CustomContainer(
+      round: 10.0,
+      border: true,
+      width: double.infinity,
+      height: 266,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 27),
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 4),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'السعر',
-                      style: TextStyle(
-                        fontFamily: 'NotoBold',
-                        fontSize: 11,
-                        color: Color.fromRGBO(50, 185, 215, 1),
-                      ),
-                    ),
-                    Text(
-                      'الكمية',
-                      style: TextStyle(
-                        fontFamily: 'NotoBold',
-                        fontSize: 11,
-                        color: Color.fromRGBO(50, 185, 215, 1),
-                      ),
-                    ),
-                    Text(
-                      'العنصر',
-                      style: TextStyle(
-                        fontFamily: 'NotoBold',
-                        fontSize: 11,
-                        color: Color.fromRGBO(50, 185, 215, 1),
-                      ),
-                    ),
+                  children: [
+                    customText(context, 'السعر', 11, false, 0xFF32b9d7),
+                    customText(context, 'الكمية', 11, false, 0xFF32b9d7),
+                    customText(context, 'العنصر', 11, false, 0xFF32b9d7),
                   ]),
             ),
           ),
@@ -181,18 +71,16 @@ class _SalesState extends State<Sales> {
                         ActionPane(motion: const StretchMotion(), children: [
                       SlidableAction(
                         onPressed: ((context) => {deleteDialog(index)}),
-                        backgroundColor: const Color(0xffBE3939),
                         icon: Icons.do_disturb_on_rounded,
-                        foregroundColor: Colors.white,
+                        foregroundColor: Color(0xffBE3939),
                       ),
                     ]),
                     endActionPane:
                         ActionPane(motion: const StretchMotion(), children: [
                       SlidableAction(
                         onPressed: ((context) => {deleteDialog(index)}),
-                        backgroundColor: const Color(0xffBE3939),
                         icon: Icons.do_disturb_on_rounded,
-                        foregroundColor: Colors.white,
+                        foregroundColor: Color(0xffBE3939),
                       ),
                     ]),
                     child: buildListTile(item),
@@ -204,269 +92,101 @@ class _SalesState extends State<Sales> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              // color: Colors.red,
               borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(10),
                 bottomLeft: Radius.circular(10),
               ),
               border: Border.all(color: Colors.grey.shade200),
             ),
-            child: Column(
-              children: [
-                Container(
-                  color: const Color(0xFF0268B2),
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 119,
-                        height: 24,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'المجموع النهائي',
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            fontSize: 11,
-                            color: Color.fromRGBO(50, 185, 215, 1),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 24,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'الضريبة',
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            fontSize: 11,
-                            color: Color.fromRGBO(50, 185, 215, 1),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 119,
-                        height: 24,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'الإجمالي',
-                          style: TextStyle(
-                            fontFamily: 'NotoBold',
-                            fontSize: 11,
-                            color: Color.fromRGBO(50, 185, 215, 1),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 119,
-                      child: const Text(
-                        '5.4625',
-                        style: TextStyle(
-                          fontFamily: 'NotoBold',
-                          fontSize: 14,
-                          color: Color(0xFF0268B2),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 100,
-                      child: const Text(
-                        '0.7125',
-                        style: TextStyle(
-                          fontFamily: 'NotoBold',
-                          fontSize: 14,
-                          color: Color(0xFF0268B2),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 119,
-                      child: const Text(
-                        '4.75',
-                        style: TextStyle(
-                          fontFamily: 'NotoBold',
-                          fontSize: 14,
-                          color: Color(0xFF0268B2),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
+            child:tableFooter(context, 5.4625, 0.7125, 4.75)
             ),
-          ),
         ],
       ),
     );
-  }
-
-  void onDismissed(int index) {
-    setState(() => items.removeAt(index));
   }
 
   Widget buildListTile(Item item) => Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                InkWell(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (c) => BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                        child: AlertDialog(
-                          backgroundColor: const Color.fromRGBO(50, 185, 215, 1),
-                          insetPadding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15))),
-                          actions: [editPrice(context)],
+                Flexible(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (c) => BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                          child: AlertDialog(
+                            backgroundColor:
+                                const Color.fromRGBO(50, 185, 215, 1),
+                            insetPadding:
+                                const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            actions: [editPrice(context)],
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            item.itemPrice.toString(),
-                            style: const TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF76797B)),
-                          ),
-                          const SizedBox(width: 4),
-                          const Text(
-                            'السعر:',
-                            textDirection: ui.TextDirection.rtl,
-                            style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 9,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF8F8F8F)),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            item.task.toString(),
-                            style: const TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF76797B)),
-                          ),
-                          const SizedBox(width: 4),
-                          const Text(
-                            'الضريبة:',
-                            textDirection: ui.TextDirection.rtl,
-                            style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 9,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF8F8F8F)),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            item.total.toString(),
-                            style: const TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF76797B)),
-                          ),
-                          const SizedBox(width: 4),
-                          const Text(
-                            'الإجمالي:',
-                            textDirection: ui.TextDirection.rtl,
-                            style: TextStyle(
-                                fontFamily: 'NotoBold',
-                                fontSize: 9,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF8F8F8F)),
-                          )
-                        ],
-                      ),
-                    ],
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        singleRow(context, 'السعر:', item.itemPrice),
+                        singleRow(context, 'الضريبة:', item.task),
+                        singleRow(context, 'الإجمالي:', item.total),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
-                  width: 60,
+                  width: 100,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [
                       SizedBox(height: 60, child: NumberRoller()),
                     ],
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (c) => BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                        child: AlertDialog(
-                          backgroundColor: const Color.fromRGBO(50, 185, 215, 1),
-                          insetPadding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15))),
-                          actions: [editItem(context)],
+                Expanded(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (c) => BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                          child: AlertDialog(
+                            backgroundColor:
+                                const Color.fromRGBO(50, 185, 215, 1),
+                            insetPadding:
+                                const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            actions: [editItem(context)],
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  child: Wrap(
-                    spacing: 6,
-                    children: [
-                      Text(
-                        item.total.toString(),
-                        style: const TextStyle(
-                            fontFamily: 'NotoBold',
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF76797B)),
-                      ),
-                      Text(
-                        item.unit,
-                        style: const TextStyle(
-                            fontFamily: 'NotoBold',
-                            fontSize: 11,
-                            color: Color(0xFF76797B)),
-                      ),
-                      Text(
-                        item.name,
-                        textDirection: ui.TextDirection.rtl,
-                        style: const TextStyle(
-                            fontFamily: 'NotoBold',
-                            fontSize: 11,
-                            color: Color(0xFF76797B)),
-                      ),
-                    ],
+                      );
+                    },
+                    child: Wrap(
+                      spacing: 5,
+                      alignment: WrapAlignment.center,
+                      children: [
+                        customText(context, item.total.toString(), 12, false,
+                            0xFF76797B,
+                            weight: FontWeight.bold),
+                        customText(context, item.unit, 11, false, 0xFF76797B,
+                            weight: FontWeight.bold),
+                        customText(context, item.name, 11, false, 0xFF76797B,
+                            weight: FontWeight.bold)
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -494,3 +214,67 @@ Widget myDivider(BuildContext context) {
     ),
   );
 }
+
+Widget singleRow(BuildContext context, String title, double value) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      customText(context, value.toString(), 12, false, 0xFF76797B,
+          weight: FontWeight.bold),
+      const SizedBox(width: 4),
+      customText(context, title, 9, false, 0xFF8F8F8F,
+          weight: FontWeight.bold, align: TextAlign.start)
+    ],
+  );
+}
+
+Widget tableFooter(BuildContext context, double result, double task, double total) {
+  return Column(
+    children: [
+      Container(
+        color: const Color(0xFF0268B2),
+        width: double.infinity,
+        child: Row(
+          children: [
+            Container(
+                width: 119,
+                height: 24,
+                alignment: Alignment.center,
+                child: customText(
+                    context, 'المجموع النهائي', 11, false, 0xFF32b9d7)),
+            Container(
+                width: 100,
+                height: 24,
+                alignment: Alignment.center,
+                child: customText(context, 'الضريبة', 11, false, 0xFF32b9d7)),
+            Container(
+                width: 119,
+                height: 24,
+                alignment: Alignment.center,
+                child: customText(context, 'الإجمالي', 11, false, 0xFF32b9d7)),
+          ],
+        ),
+      ),
+      Row(
+        children: [
+          Container(
+              alignment: Alignment.center,
+              width: 119,
+              child: customText(context, result.toString(), 14, false, 0xFF0268B2,
+                  weight: FontWeight.bold)),
+          Container(
+              alignment: Alignment.center,
+              width: 100,
+              child: customText(context, task.toString(), 14, false, 0xFF0268B2,
+                  weight: FontWeight.bold)),
+          Container(
+              alignment: Alignment.center,
+              width: 119,
+              child: customText(context, total.toString(), 14, false, 0xFF0268B2,
+                  weight: FontWeight.bold)),
+        ],
+      )
+    ],
+  );
+}
+

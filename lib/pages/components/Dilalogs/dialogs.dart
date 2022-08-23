@@ -13,7 +13,6 @@ class Dialogs {
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: AlertDialog(
             content: SizedBox(
-              
               height: 80,
               child: Column(
                 children: const [
@@ -97,7 +96,8 @@ class Dialogs {
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(horizontal: 30, vertical: 15)),
+                          const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 15)),
                       backgroundColor: MaterialStateProperty.all(Colors.white),
                       shape: MaterialStateProperty.all(
                         const RoundedRectangleBorder(
@@ -137,7 +137,8 @@ class Dialogs {
 
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(horizontal: 127, vertical: 15)),
+                          const EdgeInsets.symmetric(
+                              horizontal: 127, vertical: 15)),
                       backgroundColor: MaterialStateProperty.all(Colors.white),
                       shape: MaterialStateProperty.all(
                         const RoundedRectangleBorder(
@@ -200,8 +201,8 @@ class Dialogs {
                         ElevatedButton(
                           style: ButtonStyle(
                             elevation: MaterialStateProperty.all(3),
-                            backgroundColor:
-                                MaterialStateProperty.all(const Color(0xFF0268B2)),
+                            backgroundColor: MaterialStateProperty.all(
+                                const Color(0xFF0268B2)),
                             foregroundColor:
                                 MaterialStateProperty.all(Colors.white),
                             padding: MaterialStateProperty.all(
@@ -243,8 +244,8 @@ class Dialogs {
                         ElevatedButton(
                           style: ButtonStyle(
                             elevation: MaterialStateProperty.all(3),
-                            backgroundColor:
-                                MaterialStateProperty.all(const Color(0xFF0268B2)),
+                            backgroundColor: MaterialStateProperty.all(
+                                const Color(0xFF0268B2)),
                             foregroundColor:
                                 MaterialStateProperty.all(Colors.white),
                             padding: MaterialStateProperty.all(
@@ -341,9 +342,11 @@ class Dialogs {
                       ),
                     ),
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 11),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 11),
                     width: double.infinity,
-                    child:customText(context, text, 17, false, 0xFFFFFFFF, weight: FontWeight.w800, align: TextAlign.center),
+                    child: customText(context, text, 17, false, 0xFFFFFFFF,
+                        weight: FontWeight.w800, align: TextAlign.center),
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -352,8 +355,8 @@ class Dialogs {
                           elevation: MaterialStateProperty.all(2.3),
                           backgroundColor:
                               MaterialStateProperty.all(Colors.white),
-                          foregroundColor:
-                              MaterialStateProperty.all(const Color(0xFF0268B2)),
+                          foregroundColor: MaterialStateProperty.all(
+                              const Color(0xFF0268B2)),
                           padding: MaterialStateProperty.all(
                               const EdgeInsets.symmetric(vertical: 11)),
                           shape: MaterialStateProperty.all(
@@ -384,5 +387,96 @@ class Dialogs {
         );
       },
     );
+  }
+
+  static Future<void> deleteDialog(
+      parentContext, int index, Function yes, Function no) {
+    return showDialog(
+        context: parentContext,
+        builder: (context) {
+          return BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: AlertDialog(
+                backgroundColor: const Color(0xff32BAD7),
+                insetPadding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                title: const Text(
+                  'هل تريد حذف العنصر من الفاتورة ؟',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    height: 1.5,
+                    color: Colors.white,
+                    fontFamily: 'NotoBold',
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                actions: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 11),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  const Color(0xFF0268B2)),
+                              foregroundColor:
+                                  MaterialStateProperty.all(Colors.white),
+                              padding: MaterialStateProperty.all(
+                                  const EdgeInsets.fromLTRB(50, 5, 50, 5)),
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(11),
+                              )),
+                            ),
+                            child: const Text(
+                              'لا',
+                              style: TextStyle(
+                                fontSize: 13.0,
+                                fontFamily: 'NotoBold',
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            onPressed: () {
+                              no();
+                            },
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  const Color(0xFF0268B2)),
+                              foregroundColor:
+                                  MaterialStateProperty.all(Colors.white),
+                              padding: MaterialStateProperty.all(
+                                  const EdgeInsets.fromLTRB(50, 5, 50, 5)),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(11),
+                                ),
+                              ),
+                            ),
+                            child: const Text(
+                              'نعم',
+                              style: TextStyle(
+                                fontSize: 13.0,
+                                fontFamily: 'NotoBold',
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            onPressed: () {
+                              yes();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ));
+        });
   }
 }
