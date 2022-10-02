@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
+
 Widget billTable(BuildContext context) {
   final ScrollController controller = ScrollController();
   return Column(
@@ -7,7 +9,7 @@ Widget billTable(BuildContext context) {
       Container(
         height: 420,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: whiteColor,
           borderRadius: const BorderRadius.only(
             topRight: Radius.circular(13),
             topLeft: Radius.circular(13),
@@ -16,7 +18,7 @@ Widget billTable(BuildContext context) {
           boxShadow: const [
             BoxShadow(
               blurRadius: 3,
-              color: Color(0x33000000),
+              color: transparentBlack,
               offset: Offset(0, 1),
             ),
           ],
@@ -175,7 +177,7 @@ Widget billTable(BuildContext context) {
       ),
       Container(
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: whiteColor,
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(13),
             bottomLeft: Radius.circular(13),
@@ -183,7 +185,7 @@ Widget billTable(BuildContext context) {
           boxShadow: [
             BoxShadow(
               blurRadius: 3,
-              color: Color(0x33000000),
+              color: transparentBlack,
               offset: Offset(0, 1),
             ),
           ],
@@ -192,8 +194,8 @@ Widget billTable(BuildContext context) {
           children: [
             DataTable(
               horizontalMargin: 0,
-              headingRowColor: MaterialStateProperty.resolveWith(
-                  (states) => const Color(0xFF0268B2)),
+              headingRowColor:
+                  MaterialStateProperty.resolveWith((states) => primaryBlue),
               columnSpacing: 10,
               dataRowHeight: 35,
               headingRowHeight: 25.0,
@@ -218,15 +220,9 @@ Widget billTable(BuildContext context) {
               rows: [
                 DataRow(
                   cells: [
-                    DataCell(
-                      resCell(context, 11.425)
-                    ),
-                    DataCell(
-                      resCell(context, 2.715)
-                    ),
-                    DataCell(
-                      resCell(context, 45)
-                    )
+                    DataCell(resCell(context, 11.425)),
+                    DataCell(resCell(context, 2.715)),
+                    DataCell(resCell(context, 45))
                   ],
                 )
               ],
@@ -240,7 +236,8 @@ Widget billTable(BuildContext context) {
 
 // ---- Table Widgets ----
 
-Widget dCoulmn(BuildContext context, double width, double fontSize, String text) {
+Widget dCoulmn(
+    BuildContext context, double width, double fontSize, String text) {
   return Container(
     width: width,
     alignment: Alignment.center,
@@ -249,7 +246,7 @@ Widget dCoulmn(BuildContext context, double width, double fontSize, String text)
       style: TextStyle(
         fontFamily: 'NotoBold',
         fontSize: fontSize,
-        color: const Color.fromRGBO(50, 185, 215, 1),
+        color: cyan,
       ),
     ),
   );
@@ -264,7 +261,7 @@ Widget resColumn(BuildContext context, String text) {
       style: const TextStyle(
         fontFamily: 'NotoBold',
         fontSize: 10,
-        color: Color.fromRGBO(50, 185, 215, 1),
+        color: cyan,
       ),
     ),
   );
@@ -281,7 +278,7 @@ Widget resCell(BuildContext context, double num) {
           fontSize: 13.5,
           height: 2.7,
           fontWeight: FontWeight.w600,
-          color: Color(0xFF0268B2)),
+          color: primaryBlue),
     ),
   );
 }
@@ -323,7 +320,7 @@ Widget taskPrice(BuildContext context, double price) {
               fontSize: 13.5,
               height: 2.7,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF76797B)),
+              color: lightGray),
         ),
         const SizedBox(width: 30)
       ],
@@ -342,7 +339,7 @@ Widget taskNum(BuildContext context, int num) {
           fontSize: 13,
           height: 2.7,
           fontWeight: FontWeight.w600,
-          color: Color(0xFF76797B)),
+          color: lightGray),
     ),
   );
 }
@@ -357,7 +354,7 @@ Widget taskId(BuildContext context, int id) {
           fontFamily: 'NotoBold',
           fontSize: 13,
           fontWeight: FontWeight.w600,
-          color: Color(0xFF76797B)),
+          color: lightGray),
     ),
   );
 }

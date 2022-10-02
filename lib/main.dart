@@ -1,11 +1,12 @@
 // @dart=2.9
 
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import 'pages/allpackages/add_card.dart';
 import 'pages/allpackages/daliy_package.dart';
 import 'pages/allpackages/monthly_package.dart';
-import 'pages/allpackages/packages.dart';
+import 'pages/allpackages/packagesScreen/packages.dart';
 import 'pages/allpackages/paymentsuccess.dart';
 import 'pages/allpackages/yearly_package.dart';
 import 'pages/components/bottom_navigator.dart';
@@ -20,18 +21,26 @@ import 'pages/login/facility_input.dart';
 import 'pages/login/phone_input.dart';
 import 'pages/login/terms.dart';
 import 'pages/login/verification.dart';
+
 import 'pages/starter/splash.dart';
 
 void main() => runApp(
-      const MyApp(),
+  const MyApp(), 
     );
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+      return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
@@ -64,6 +73,7 @@ class MyApp extends StatelessWidget {
         '/yearly': (context) => const YearlyPackage(),
         '/addCard': (context) => const AddCard(),
       },
-    );
+      );
+      });
   }
 }

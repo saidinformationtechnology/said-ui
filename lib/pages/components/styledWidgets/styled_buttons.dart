@@ -3,13 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/styledWidgets/styled_texts.dart';
 
+import '../../../services/constrants.dart';
+
 Widget registerBtn(BuildContext context, String text, Function doSomething) {
   return ElevatedButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.all(4),
-      backgroundColor: MaterialStateProperty.all(Colors.white),
-      foregroundColor:
-          MaterialStateProperty.all(const Color.fromRGBO(50, 185, 215, 1)),
+      backgroundColor: MaterialStateProperty.all(whiteColor),
+      foregroundColor: MaterialStateProperty.all(cyan),
       padding:
           MaterialStateProperty.all(const EdgeInsets.fromLTRB(22, 9, 22, 10)),
       shape: MaterialStateProperty.all(
@@ -27,7 +28,7 @@ Widget registerBtn(BuildContext context, String text, Function doSomething) {
       style: TextStyle(
         fontSize: 16,
         fontFamily: 'NotoBold',
-        color: Color.fromRGBO(50, 185, 215, 1),
+        color: cyan,
       ),
     ),
   );
@@ -39,14 +40,14 @@ Widget nextBtn(BuildContext context, String text, Function doSomething,
     double top = 9.0,
     double circular = 11.0,
     double size = 16.0,
-    int color = 0xFFFFFFFF,
+    Color color = whiteColor,
+    Color back = cyan,
     double cheight = 33.0}) {
   return ElevatedButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.all(elevation),
-      backgroundColor:
-          MaterialStateProperty.all(Color.fromRGBO(50, 185, 215, 1)),
-      foregroundColor: MaterialStateProperty.all(Colors.white),
+      backgroundColor: MaterialStateProperty.all(back),
+      foregroundColor: MaterialStateProperty.all(color),
       padding: MaterialStateProperty.all(
           EdgeInsets.fromLTRB(right, top, right, top)),
       shape: MaterialStateProperty.all(
@@ -66,10 +67,15 @@ Widget nextBtn(BuildContext context, String text, Function doSomething,
   );
 }
 
-Widget textBtn(BuildContext context, String text, Function doSomething) {
+Widget textBtn(
+  BuildContext context,
+  String text,
+  Function doSomething, {
+  double size = 16.0,
+}) {
   return TextButton(
     style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.all(Colors.white),
+      foregroundColor: MaterialStateProperty.all(whiteColor),
     ),
     onPressed: () {
       doSomething();
@@ -77,10 +83,10 @@ Widget textBtn(BuildContext context, String text, Function doSomething) {
     child: Text(
       text,
       textDirection: TextDirection.rtl,
-      style: const TextStyle(
+      style: TextStyle(
         height: 1.5,
         fontFamily: 'NotoBold',
-        fontSize: 16,
+        fontSize: size,
         decoration: TextDecoration.underline,
       ),
     ),
@@ -92,9 +98,9 @@ Widget outlineText(BuildContext context, String text, Function doSomething,
   return TextButton(
     style: ButtonStyle(
       elevation: MaterialStateProperty.all(0),
-      foregroundColor: MaterialStateProperty.all(const Color(0xFF0268B2)),
+      foregroundColor: MaterialStateProperty.all(primaryBlue),
       side: MaterialStateProperty.all(
-        const BorderSide(color: Color(0xFF0268B2), width: 1),
+        const BorderSide(color: primaryBlue, width: 1),
       ),
       padding: MaterialStateProperty.all(
           EdgeInsets.fromLTRB(right, top, right, top)),
@@ -119,47 +125,54 @@ Widget outlineText(BuildContext context, String text, Function doSomething,
 }
 
 Widget btnsGroup(BuildContext context, String btn1, String btn2) {
-  return Row(
-    children: [
-      ElevatedButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all(Size.zero),
-          elevation: MaterialStateProperty.all(2),
-          backgroundColor:
-              MaterialStateProperty.all(Color.fromRGBO(50, 185, 215, 1)),
-          foregroundColor: MaterialStateProperty.all(Colors.white),
-          padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(50, 6, 50, 6)),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+  final width = MediaQuery.of(context).size.width;
+  return SizedBox(
+    width: width,
+    child: Row(
+      children: [
+        Expanded(
+          child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all(Size.zero),
+                elevation: MaterialStateProperty.all(2),
+                backgroundColor: MaterialStateProperty.all(cyan),
+                foregroundColor: MaterialStateProperty.all(whiteColor),
+                padding:
+                    MaterialStateProperty.all(EdgeInsets.fromLTRB(50, 6, 50, 6)),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
+              child: customText(context, btn2, 11, false, whiteColor)),
         ),
-        child:customText(context, btn2, 11, false, 0xFFFFFFFF)
-      ),
-      ElevatedButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all(Size.zero),
-          elevation: MaterialStateProperty.all(2),
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-          foregroundColor: MaterialStateProperty.all(Color(0xFF0268B2)),
-          padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(49, 6, 49, 6)),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
+        Expanded(
+          child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all(Size.zero),
+                elevation: MaterialStateProperty.all(2),
+                backgroundColor: MaterialStateProperty.all(whiteColor),
+                foregroundColor: MaterialStateProperty.all(primaryBlue),
+                padding:
+                    MaterialStateProperty.all(EdgeInsets.fromLTRB(49, 6, 49, 6)),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
+              child: customText(context, btn1, 11, false, primaryBlue)),
         ),
-        child:customText(context, btn1, 11, false, 0xFF0268B2)
-      ),
-    ],
+      ],
+    ),
   );
 }

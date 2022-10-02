@@ -3,6 +3,8 @@
 import 'package:custom_switch_button/custom_switch_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
+
 class MySwitcher extends StatefulWidget {
   const MySwitcher({Key? key}) : super(key: key);
 
@@ -29,7 +31,7 @@ class _MySwitcherState extends State<MySwitcher> {
         backgroundColor: Colors.grey[400],
         unCheckedColor: Colors.grey[200],
         animationDuration: Duration(milliseconds: 520),
-        checkedColor: Color(0xFF0268B2),
+        checkedColor: primaryBlue,
         checked: isChecked,
       ),
     );

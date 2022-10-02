@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
+
 Widget editPrice(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.fromLTRB(8, 10, 8, 10),
@@ -14,7 +16,7 @@ Widget editPrice(BuildContext context) {
             style: TextStyle(
               fontSize: 17.0,
               height: 1.5,
-              color: Colors.white,
+              color: whiteColor,
               fontFamily: 'NotoBold',
               fontWeight: FontWeight.w600,
             ),
@@ -32,27 +34,27 @@ Widget editPrice(BuildContext context) {
                       fontSize: 13.0,
                       fontFamily: 'NotoBold',
                       fontWeight: FontWeight.w800,
-                      color: Color(0xFF0268B2)),
+                      color: primaryBlue),
                 ),
                 const SizedBox(height: 3),
                 Container(
                   width: 80,
                   height: 31,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     borderRadius: BorderRadius.circular(7),
                     border: Border.all(color: Colors.grey.shade200),
                     boxShadow: const [
                       BoxShadow(
                         blurRadius: 3,
-                        color: Color(0x33000000),
+                        color: transparentBlack,
                         offset: Offset(0, 1),
                       ),
                     ],
                   ),
                   child: const TextField(
                     style: TextStyle(
-                      color: Color(0xFF0268B2),
+                      color: primaryBlue,
                       fontFamily: 'NotoBold',
                       fontWeight: FontWeight.w600,
                     ),
@@ -77,27 +79,27 @@ Widget editPrice(BuildContext context) {
                       fontSize: 13.0,
                       fontFamily: 'NotoBold',
                       fontWeight: FontWeight.w800,
-                      color: Color(0xFF0268B2)),
+                      color: primaryBlue),
                 ),
                 const SizedBox(height: 3),
                 Container(
                   width: 80,
                   height: 31,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     borderRadius: BorderRadius.circular(7),
                     border: Border.all(color: Colors.grey.shade200),
                     boxShadow: const [
                       BoxShadow(
                         blurRadius: 3,
-                        color: Color(0x33000000),
+                        color: transparentBlack,
                         offset: Offset(0, 1),
                       ),
                     ],
                   ),
                   child: const TextField(
                     style: TextStyle(
-                      color: Color(0xFF0268B2),
+                      color: primaryBlue,
                       fontFamily: 'NotoBold',
                       fontWeight: FontWeight.w600,
                     ),
@@ -122,27 +124,27 @@ Widget editPrice(BuildContext context) {
                       fontSize: 13.0,
                       fontFamily: 'NotoBold',
                       fontWeight: FontWeight.w800,
-                      color: Color(0xFF0268B2)),
+                      color: primaryBlue),
                 ),
                 const SizedBox(height: 3),
                 Container(
                   width: 80,
                   height: 31,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     borderRadius: BorderRadius.circular(7),
                     border: Border.all(color: Colors.grey.shade200),
                     boxShadow: const [
                       BoxShadow(
                         blurRadius: 3,
-                        color: Color(0x33000000),
+                        color: transparentBlack,
                         offset: Offset(0, 1),
                       ),
                     ],
                   ),
                   child: const TextField(
                     style: TextStyle(
-                      color: Color(0xFF0268B2),
+                      color: primaryBlue,
                       fontFamily: 'NotoBold',
                       fontWeight: FontWeight.w600,
                     ),
@@ -170,8 +172,8 @@ Widget editPrice(BuildContext context) {
               ElevatedButton(
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(Size.zero),
-                  backgroundColor: MaterialStateProperty.all(const Color(0xFF0268B2)),
-                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(primaryBlue),
+                  foregroundColor: MaterialStateProperty.all(whiteColor),
                   padding: MaterialStateProperty.all(
                       const EdgeInsets.fromLTRB(40, 4, 40, 4)),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -196,8 +198,8 @@ Widget editPrice(BuildContext context) {
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(Size.zero),
-                  backgroundColor: MaterialStateProperty.all(const Color(0xFF0268B2)),
-                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(primaryBlue),
+                  foregroundColor: MaterialStateProperty.all(whiteColor),
                   padding: MaterialStateProperty.all(
                       const EdgeInsets.fromLTRB(40, 4, 40, 4)),
                   shape: MaterialStateProperty.all(
@@ -239,7 +241,7 @@ Widget editItem(BuildContext context) {
               style: TextStyle(
                 fontSize: 17.0,
                 height: 1.5,
-                color: Colors.white,
+                color: whiteColor,
                 fontFamily: 'NotoBold',
                 fontWeight: FontWeight.w600,
               ),
@@ -250,13 +252,13 @@ Widget editItem(BuildContext context) {
             width: double.infinity,
             height: 31,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(7),
               border: Border.all(color: Colors.grey.shade200),
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -288,13 +290,13 @@ Widget editItem(BuildContext context) {
             width: double.infinity,
             height: 31,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(7),
               border: Border.all(color: Colors.grey.shade200),
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -326,13 +328,13 @@ Widget editItem(BuildContext context) {
             width: double.infinity,
             height: 31,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(7),
               border: Border.all(color: Colors.grey.shade200),
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -369,9 +371,8 @@ Widget editItem(BuildContext context) {
                 ElevatedButton(
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(Size.zero),
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF0268B2)),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(primaryBlue),
+                    foregroundColor: MaterialStateProperty.all(whiteColor),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.fromLTRB(40, 4, 40, 4)),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -396,9 +397,8 @@ Widget editItem(BuildContext context) {
                   },
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(Size.zero),
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF0268B2)),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(primaryBlue),
+                    foregroundColor: MaterialStateProperty.all(whiteColor),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.fromLTRB(40, 4, 40, 4)),
                     shape: MaterialStateProperty.all(

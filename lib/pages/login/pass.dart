@@ -5,6 +5,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:lastsaid/pages/login/verification.dart';
 import 'package:lastsaid/pages/login/login.dart';
 
+import '../../services/constrants.dart';
 import '../components/Dilalogs/dialogs.dart';
 
 class Pass extends StatefulWidget {
@@ -18,135 +19,133 @@ class PassState extends State<Pass> {
   @override
   Widget build(context) {
     return Scaffold(
-        backgroundColor: Color(0xFF0268B2),
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 40),
-              Column(
+      backgroundColor: primaryBlue,
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 40),
+            Column(
+              children: [
+                Text(
+                  'Said Lite',
+                  style: TextStyle(
+                    fontFamily: 'ArialRounded',
+                    fontSize: 38.0,
+                    color: whiteColor,
+                    fontWeight: FontWeight.bold,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(3.0, 2.0),
+                        blurRadius: 3.0,
+                        color: Color(0xFF015795),
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  'المحاسبي',
+                  style: TextStyle(
+                    fontSize: 34.0,
+                    color: whiteColor,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'NotoRegular',
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(3.0, 2.0),
+                        blurRadius: 3.0,
+                        color: Color(0xFF015795),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 60),
+            ),
+            Text(
+              'استعادة كلمة المرور:',
+              textDirection: TextDirection.rtl,
+              style: TextStyle(
+                fontFamily: 'NotoBold',
+                fontSize: 20,
+                color: whiteColor,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            Form(
+              child: Column(
                 children: [
-                  Text(
-                    'Said Lite',
-                    style: TextStyle(
-                      fontFamily: 'ArialRounded',
-                      fontSize: 38.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(3.0, 2.0),
-                          blurRadius: 3.0,
-                          color: Color(0xFF015795),
-                        ),
-                      ],
-                    ),
+                  Container(
+                    margin: EdgeInsets.only(top: 30),
                   ),
-                  Text(
-                    'المحاسبي',
-                    style: TextStyle(
-                      fontSize: 34.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'NotoRegular',
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(3.0, 2.0),
-                          blurRadius: 3.0,
-                          color: Color(0xFF015795),
-                        ),
-                      ],
-                    ),
+                  mobileField(),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
                   ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                  ),
+                  submitButton(),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.only(top: 60),
+            ),
+            SizedBox(height: 45),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              style: TextButton.styleFrom(
+                primary: whiteColor,
               ),
-              Text(
-                'استعادة كلمة المرور:',
-                textDirection: TextDirection.rtl,
+              child: Text(
+                'الرجوع إلى صفحة تسجيل الدخول',
                 style: TextStyle(
+                  color: whiteColor,
+                  decoration: TextDecoration.underline,
+                  fontSize: 16.0,
                   fontFamily: 'NotoBold',
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
                 ),
               ),
-              Form(
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 30),
-                    ),
-                    mobileField(),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                    ),
-                    submitButton(),
-                  ],
-                ),
-              ),
-              SizedBox(height: 45),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  );
-                },
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'الرجوع إلى صفحة تسجيل الدخول',
-                  style: TextStyle(
-                    color: Colors.white,
+            ),
+            SizedBox(height: 30),
+            TextButton.icon(
+              icon: Icon(Icons.arrow_downward_rounded),
+              label: Text(
+                'اللغة : العربية',
+                style: TextStyle(
+                    color: whiteColor,
                     decoration: TextDecoration.underline,
-                    fontSize: 16.0,
-                    fontFamily: 'NotoBold',
-                  ),
-                ),
+                    fontSize: 15.0,
+                    fontFamily: 'NotoBold'),
               ),
-              SizedBox(height: 30),
-              TextButton.icon(
-                icon: Icon(Icons.arrow_downward_rounded),
-                label: Text(
-                  'اللغة : العربية',
-                  style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                      fontSize: 15.0,
-                      fontFamily: 'NotoBold'),
-                ),
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                ),
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                primary: whiteColor,
               ),
-              TextButton(
+            ),
+            TextButton(
                 onPressed: () {
                   Dialogs.supportDialog(context);
                 },
                 style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.white),
-                  alignment: Alignment.centerLeft
-                ),
+                    foregroundColor: MaterialStateProperty.all(whiteColor),
+                    alignment: Alignment.centerLeft),
                 child: Text(
                   'التواصل مع الدعم',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: whiteColor,
                       decoration: TextDecoration.underline,
                       fontSize: 15.0,
                       fontFamily: 'NotoBold'),
-                )
-              ),
-            ],
-          ),
+                )),
+          ],
         ),
+      ),
     );
   }
 
@@ -166,9 +165,8 @@ class PassState extends State<Pass> {
               borderRadius: BorderRadius.circular(13),
             ),
             filled: true,
-            fillColor: Colors.white,
-            contentPadding:
-                EdgeInsets.symmetric(horizontal: 20, vertical: 18)),
+            fillColor: whiteColor,
+            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18)),
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w600,
@@ -191,9 +189,8 @@ class PassState extends State<Pass> {
           )),
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
-        backgroundColor:
-            MaterialStateProperty.all(Color.fromRGBO(50, 185, 215, 1)),
-        foregroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: MaterialStateProperty.all(cyan),
+        foregroundColor: MaterialStateProperty.all(whiteColor),
         padding:
             MaterialStateProperty.all(EdgeInsets.fromLTRB(145, 11, 145, 11)),
         shape: MaterialStateProperty.all(

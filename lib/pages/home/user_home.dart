@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:lastsaid/pages/home/purchases/purchase_bill.dart';
 import 'package:lastsaid/pages/home/sales/sale_bill.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_container.dart';
 import 'drawers/purchases_drawer.dart';
 import 'drawers/sales_drawer.dart';
@@ -34,8 +35,7 @@ class _UserHomeState extends State<UserHome> {
 
   @override
   Widget build(BuildContext context) {
-    // bool Drawer;
-
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -44,7 +44,7 @@ class _UserHomeState extends State<UserHome> {
           builder: (context) => IconButton(
             icon: const ImageIcon(
               AssetImage('assets/icons/menu.png'),
-              color: Color(0xFF0268B2),
+              color: primaryBlue,
               size: 27,
             ),
             onPressed: () {
@@ -59,7 +59,7 @@ class _UserHomeState extends State<UserHome> {
             child: Text(
               'ميني سوبر ماركت',
               style: TextStyle(
-                  color: Color(0xFF0268B2),
+                  color: primaryBlue,
                   fontSize: 18.0,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'NotoBold'),
@@ -103,7 +103,7 @@ class _UserHomeState extends State<UserHome> {
                   Text(
                     time,
                     style: const TextStyle(
-                      color: Color(0xFF76797B),
+                      color: lightGray,
                       fontSize: 12.5,
                       fontWeight: FontWeight.bold,
                     ),
@@ -111,7 +111,7 @@ class _UserHomeState extends State<UserHome> {
                   Text(
                     ', $date',
                     style: const TextStyle(
-                      color: Color(0xFF76797B),
+                      color: lightGray,
                       fontSize: 12.5,
                       fontWeight: FontWeight.bold,
                     ),
@@ -121,17 +121,17 @@ class _UserHomeState extends State<UserHome> {
               const SizedBox(height: 10),
               Container(
                 width: double.infinity,
-                height: 130,
+                height: height*0.18,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF76797B),
+                  color: lightGray,
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
               const SizedBox(height: 13),
               CustomContainer(
-               width: double.infinity,
+                width: double.infinity,
                 height: 35,
-                round:10,
+                round: 10,
                 child: TextField(
                   style: TextStyle(
                     fontFamily: 'NotoBold',
@@ -170,11 +170,11 @@ class _UserHomeState extends State<UserHome> {
                       width: double.infinity,
                       height: 37,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: whiteColor,
                         boxShadow: const [
                           BoxShadow(
                             blurRadius: 3,
-                            color: Color(0x33000000),
+                            color: transparentBlack,
                             offset: Offset(0, 1),
                           ),
                         ],
@@ -187,11 +187,11 @@ class _UserHomeState extends State<UserHome> {
                             });
                           },
                           indicator: BoxDecoration(
-                            color: const Color.fromRGBO(50, 185, 215, 1),
+                            color: cyan,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          labelColor: Colors.white,
-                          unselectedLabelColor: const Color(0xFF0268B2),
+                          labelColor: whiteColor,
+                          unselectedLabelColor: primaryBlue,
                           tabs: const [
                             Tab(
                               child: Text('فاتورة مشتريات',
@@ -213,7 +213,7 @@ class _UserHomeState extends State<UserHome> {
                     ),
                     const SizedBox(height: 15),
                     SizedBox(
-                      height: 330,
+                      height: height*0.50,
                       child: TabBarView(
                         children: [PurchaseBill(), SaleBill()],
                       ),

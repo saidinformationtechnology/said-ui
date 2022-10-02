@@ -1,29 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/home/support.dart';
 
-class FacilityPage extends StatelessWidget {
+import '../../../services/constrants.dart';
+
+class FacilityPage extends StatefulWidget {
   const FacilityPage({Key? key}) : super(key: key);
 
   @override
+  State<FacilityPage> createState() => _FacilityPageState();
+}
+
+class _FacilityPageState extends State<FacilityPage> {
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: Column(
         children: [
           Container(
             width: double.infinity,
-            height: 160,
+            height: height*0.20,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(18),
                 bottomLeft: Radius.circular(18),
               ), //BorderRadius.vertical
-              color: Color(0xFFFCFCFC),
+              color: thirdWhite,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -42,7 +50,7 @@ class FacilityPage extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                           fontFamily: 'NotoBold',
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                           fontSize: 26,
                         ),
                       ),
@@ -52,20 +60,20 @@ class FacilityPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 232),
+          SizedBox(height: height*0.30),
           Container(
             width: double.infinity,
-            height: 350,
+            height: height*0.426,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(18),
                 topLeft: Radius.circular(18),
               ),
-              color: Color(0xFFFCFCFC),
+              color: thirdWhite,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -83,7 +91,7 @@ class FacilityPage extends StatelessWidget {
                       children: [
                         const Icon(
                           Icons.chevron_left,
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                           size: 28,
                         ),
                         Row(
@@ -97,13 +105,13 @@ class FacilityPage extends StatelessWidget {
                                   fontFamily: 'NotoBold',
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                 ),
                               ),
                             ),
                             const ImageIcon(
                               AssetImage('assets/icons/store.png'),
-                              color: Color.fromRGBO(50, 185, 215, 1),
+                              color: cyan,
                               size: 27,
                             ),
                           ],
@@ -113,7 +121,7 @@ class FacilityPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(
-                  color: Color.fromRGBO(50, 185, 215, 1),
+                  color: cyan,
                   thickness: 2.5,
                 ),
                 InkWell(
@@ -128,7 +136,7 @@ class FacilityPage extends StatelessWidget {
                       children: [
                         const Icon(
                           Icons.chevron_left,
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                           size: 28,
                         ),
                         Row(
@@ -142,13 +150,13 @@ class FacilityPage extends StatelessWidget {
                                   fontFamily: 'NotoBold',
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                 ),
                               ),
                             ),
                             const ImageIcon(
                               AssetImage('assets/icons/box.png'),
-                              color: Color.fromRGBO(50, 185, 215, 1),
+                              color: cyan,
                               size: 27,
                             ),
                           ],
@@ -158,7 +166,7 @@ class FacilityPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(
-                  color: Color.fromRGBO(50, 185, 215, 1),
+                  color: cyan,
                   thickness: 2.5,
                 ),
                 InkWell(
@@ -173,7 +181,7 @@ class FacilityPage extends StatelessWidget {
                       children: [
                         const Icon(
                           Icons.chevron_left,
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                           size: 28,
                         ),
                         Row(
@@ -187,13 +195,13 @@ class FacilityPage extends StatelessWidget {
                                   fontFamily: 'NotoBold',
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                 ),
                               ),
                             ),
                             const ImageIcon(
                               AssetImage('assets/icons/about.png'),
-                              color: Color.fromRGBO(50, 185, 215, 1),
+                              color: cyan,
                               size: 27,
                             ),
                           ],
@@ -203,7 +211,7 @@ class FacilityPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(
-                  color: Color.fromRGBO(50, 185, 215, 1),
+                  color: cyan,
                   thickness: 2.5,
                 ),
                 const SizedBox(height: 78),

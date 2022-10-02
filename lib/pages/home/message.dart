@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/Dilalogs/dialogs.dart';
 import 'package:lastsaid/pages/components/styledWidgets/styled_buttons.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_inputs.dart';
 import '../components/styledWidgets/styled_texts.dart';
 
-class Message extends StatelessWidget {
+class Message extends StatefulWidget {
   const Message({Key? key}) : super(key: key);
 
+  @override
+  State<Message> createState() => _MessageState();
+}
+
+class _MessageState extends State<Message> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFFFCFCFC),
+      backgroundColor: thirdWhite,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -24,7 +30,7 @@ class Message extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(50),
                 ), //BorderRadius.vertical
-                color: Color(0xFF0268B2),
+                color: primaryBlue,
               ),
               child: Column(
                 children: [
@@ -59,10 +65,10 @@ class Message extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        customText(context, 'مرحبا ...', 43, false, 0xFFFFFFFF,
+                        customText(context, 'مرحبا ...', 43, false, whiteColor,
                             align: TextAlign.start),
                         customText(context, 'كيف يمكننا مساعدتك؟', 16, false,
-                            0xFFFFFFFF,
+                            whiteColor,
                             align: TextAlign.start),
                       ],
                     ),
@@ -77,12 +83,12 @@ class Message extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    customText(context, 'الاسم:', 15, false, 0xFF0268B2,
+                    customText(context, 'الاسم:', 15, false, primaryBlue,
                         align: TextAlign.start),
                     const SizedBox(height: 5),
                     inputField(context,
                         height: 43.0,
-                        color: 0xFFF9F9F9,
+                        color: secondaryWhite,
                         round: 18.0,
                         shadow: false,
                         border: false,
@@ -92,12 +98,12 @@ class Message extends StatelessWidget {
                       height: 10,
                     ),
                     customText(
-                        context, 'البريد الإلكتروني:', 15, false, 0xFF0268B2,
+                        context, 'البريد الإلكتروني:', 15, false, primaryBlue,
                         align: TextAlign.start),
                     const SizedBox(height: 5),
                     inputField(context,
                         height: 43.0,
-                        color: 0xFFF9F9F9,
+                        color: secondaryWhite,
                         round: 18.0,
                         shadow: false,
                         border: false,
@@ -107,12 +113,12 @@ class Message extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    customText(context, 'الرسالة:', 15, false, 0xFF0268B2,
+                    customText(context, 'الرسالة:', 15, false, primaryBlue,
                         align: TextAlign.start),
                     const SizedBox(height: 5),
                     inputField(context,
                         height: 175.0,
-                        color: 0xFFF9F9F9,
+                        color: secondaryWhite,
                         round: 18.0,
                         shadow: false,
                         border: false,

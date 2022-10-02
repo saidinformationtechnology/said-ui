@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 
+import '../../services/constrants.dart';
+
 class NumberRoller extends StatefulWidget {
   const NumberRoller({Key? key}) : super(key: key);
 
@@ -25,7 +27,7 @@ class _NumberRollerState extends State<NumberRoller> {
       selectedTextStyle: const TextStyle(
           fontSize: 17,
           fontFamily: 'NotoBold',
-          color: Color(0xff8F8F8F),
+          color: secondaryGray,
           fontWeight: FontWeight.bold,
           decoration: TextDecoration.underline),
       onChanged: (value) => setState(() => _currentValue = value),

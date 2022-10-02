@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_container.dart';
-import 'daliy_package.dart';
+import 'packageWidget.dart';
 
-class YearlyPackage extends StatelessWidget {
+class YearlyPackage extends StatefulWidget {
   const YearlyPackage({Key? key}) : super(key: key);
 
   @override
+  State<YearlyPackage> createState() => _YearlyPackageState();
+}
+
+class _YearlyPackageState extends State<YearlyPackage> {
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
-          child: Column(
-            children: [
-              const SizedBox(height: 18),
-              paymentHeader(context),
-              const SizedBox(height: 230),
-              package(context, 'الباقة السنوية', 500, width:26, size:50)
-            ]
-          ),
+          child: Column(children: [
+            SizedBox(height: height * 0.02),
+            paymentHeader(context),
+            SizedBox(height: height * 0.30),
+            package(context, 'الباقة السنوية', 500, width: 26, size: 50)
+          ]),
         ),
       ),
     );

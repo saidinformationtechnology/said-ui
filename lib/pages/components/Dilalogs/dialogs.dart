@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/Dilalogs/dilalogs_widgets.dart';
 
+import '../../../services/constrants.dart';
 import '../styledWidgets/styled_texts.dart';
 
 class Dialogs {
@@ -21,7 +22,7 @@ class Dialogs {
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontFamily: 'NotoRegular',
-                      color: Color(0xFF0268B2),
+                      color: primaryBlue,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -31,7 +32,7 @@ class Dialogs {
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontFamily: 'NotoRegular',
-                      color: Color(0xFF0268B2),
+                      color: primaryBlue,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -44,8 +45,8 @@ class Dialogs {
                 child: TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                        const Color.fromRGBO(50, 185, 215, 1)),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                         cyan),
+                    foregroundColor: MaterialStateProperty.all(whiteColor),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.fromLTRB(100, 5, 100, 5)),
                     shape: MaterialStateProperty.all(
@@ -98,7 +99,7 @@ class Dialogs {
                       padding: MaterialStateProperty.all(
                           const EdgeInsets.symmetric(
                               horizontal: 30, vertical: 15)),
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      backgroundColor: MaterialStateProperty.all(whiteColor),
                       shape: MaterialStateProperty.all(
                         const RoundedRectangleBorder(
                             borderRadius:
@@ -113,7 +114,7 @@ class Dialogs {
                           style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w700,
-                            color: Color.fromRGBO(50, 185, 215, 1),
+                            color: cyan,
                             fontFamily: 'NotoBold',
                           ),
                         ), // <-- Text
@@ -123,7 +124,7 @@ class Dialogs {
                         Icon(
                           // <-- Icon
                           Icons.phone_enabled_sharp,
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                           size: 23.0,
                         ),
                       ],
@@ -139,7 +140,7 @@ class Dialogs {
                       padding: MaterialStateProperty.all(
                           const EdgeInsets.symmetric(
                               horizontal: 127, vertical: 15)),
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      backgroundColor: MaterialStateProperty.all(whiteColor),
                       shape: MaterialStateProperty.all(
                         const RoundedRectangleBorder(
                             borderRadius:
@@ -151,7 +152,7 @@ class Dialogs {
                       style: TextStyle(
                         fontSize: 15.0,
                         fontWeight: FontWeight.w700,
-                        color: Color.fromRGBO(50, 185, 215, 1),
+                        color: cyan,
                         fontFamily: 'NotoBold',
                       ),
                     ),
@@ -172,7 +173,7 @@ class Dialogs {
         return BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: AlertDialog(
-            backgroundColor: const Color.fromRGBO(50, 185, 215, 1),
+            backgroundColor:  cyan,
             insetPadding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(15))),
@@ -189,7 +190,7 @@ class Dialogs {
                       style: TextStyle(
                         fontSize: 17.0,
                         height: 1.5,
-                        color: Colors.white,
+                        color: whiteColor,
                         fontFamily: 'NotoBold',
                         fontWeight: FontWeight.w600,
                       ),
@@ -201,10 +202,10 @@ class Dialogs {
                         ElevatedButton(
                           style: ButtonStyle(
                             elevation: MaterialStateProperty.all(3),
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color(0xFF0268B2)),
+                            backgroundColor:
+                                MaterialStateProperty.all(primaryBlue),
                             foregroundColor:
-                                MaterialStateProperty.all(Colors.white),
+                                MaterialStateProperty.all(whiteColor),
                             padding: MaterialStateProperty.all(
                                 const EdgeInsets.fromLTRB(37, 5, 37, 5)),
                             shape: MaterialStateProperty.all(
@@ -229,7 +230,7 @@ class Dialogs {
                                     ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                                 child: AlertDialog(
                                   backgroundColor:
-                                      const Color.fromRGBO(50, 185, 215, 1),
+                                       cyan,
                                   insetPadding:
                                       const EdgeInsets.fromLTRB(50, 0, 50, 0),
                                   shape: const RoundedRectangleBorder(
@@ -244,10 +245,10 @@ class Dialogs {
                         ElevatedButton(
                           style: ButtonStyle(
                             elevation: MaterialStateProperty.all(3),
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color(0xFF0268B2)),
+                            backgroundColor:
+                                MaterialStateProperty.all(primaryBlue),
                             foregroundColor:
-                                MaterialStateProperty.all(Colors.white),
+                                MaterialStateProperty.all(whiteColor),
                             padding: MaterialStateProperty.all(
                                 const EdgeInsets.fromLTRB(37, 5, 37, 5)),
                             shape: MaterialStateProperty.all(
@@ -272,7 +273,7 @@ class Dialogs {
                                     ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                                 child: AlertDialog(
                                   backgroundColor:
-                                      const Color.fromRGBO(50, 185, 215, 1),
+                                       cyan,
                                   insetPadding:
                                       const EdgeInsets.fromLTRB(50, 0, 50, 0),
                                   shape: const RoundedRectangleBorder(
@@ -289,10 +290,8 @@ class Dialogs {
                     const SizedBox(height: 4),
                     ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                        foregroundColor:
-                            MaterialStateProperty.all(const Color(0xFF0268B2)),
+                        backgroundColor: MaterialStateProperty.all(whiteColor),
+                        foregroundColor: MaterialStateProperty.all(primaryBlue),
                         padding: MaterialStateProperty.all(
                             const EdgeInsets.fromLTRB(107, 5, 107, 5)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -335,7 +334,7 @@ class Dialogs {
                 children: [
                   Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromRGBO(50, 185, 215, 1),
+                      color: cyan,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(17),
                         topLeft: Radius.circular(17),
@@ -345,7 +344,7 @@ class Dialogs {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 5, vertical: 11),
                     width: double.infinity,
-                    child: customText(context, text, 17, false, 0xFFFFFFFF,
+                    child: customText(context, text, 17, false, whiteColor,
                         weight: FontWeight.w800, align: TextAlign.center),
                   ),
                   SizedBox(
@@ -354,9 +353,9 @@ class Dialogs {
                         style: ButtonStyle(
                           elevation: MaterialStateProperty.all(2.3),
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(
-                              const Color(0xFF0268B2)),
+                              MaterialStateProperty.all(whiteColor),
+                          foregroundColor:
+                              MaterialStateProperty.all(primaryBlue),
                           padding: MaterialStateProperty.all(
                               const EdgeInsets.symmetric(vertical: 11)),
                           shape: MaterialStateProperty.all(
@@ -407,7 +406,7 @@ class Dialogs {
                   style: TextStyle(
                     fontSize: 15.0,
                     height: 1.5,
-                    color: Colors.white,
+                    color: whiteColor,
                     fontFamily: 'NotoBold',
                     fontWeight: FontWeight.w600,
                   ),
@@ -422,10 +421,10 @@ class Dialogs {
                         children: [
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xFF0268B2)),
+                              backgroundColor:
+                                  MaterialStateProperty.all(primaryBlue),
                               foregroundColor:
-                                  MaterialStateProperty.all(Colors.white),
+                                  MaterialStateProperty.all(whiteColor),
                               padding: MaterialStateProperty.all(
                                   const EdgeInsets.fromLTRB(50, 5, 50, 5)),
                               shape: MaterialStateProperty.all(
@@ -447,10 +446,10 @@ class Dialogs {
                           ),
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xFF0268B2)),
+                              backgroundColor:
+                                  MaterialStateProperty.all(primaryBlue),
                               foregroundColor:
-                                  MaterialStateProperty.all(Colors.white),
+                                  MaterialStateProperty.all(whiteColor),
                               padding: MaterialStateProperty.all(
                                   const EdgeInsets.fromLTRB(50, 5, 50, 5)),
                               shape: MaterialStateProperty.all(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
+
 Widget saidLogo(BuildContext context, int color) {
   return Column(
     children: [
@@ -8,7 +10,7 @@ Widget saidLogo(BuildContext context, int color) {
         style: TextStyle(
           fontFamily: 'ArialRounded',
           fontSize: 40.0,
-          color: Colors.white,
+          color: whiteColor,
           fontWeight: FontWeight.bold,
           shadows: <Shadow>[
             Shadow(
@@ -23,7 +25,7 @@ Widget saidLogo(BuildContext context, int color) {
         'المحاسبي',
         style: TextStyle(
           fontSize: 40.0,
-          color: Colors.white,
+          color: whiteColor,
           fontWeight: FontWeight.w600,
           fontFamily: 'NotoRegular',
           height: 1.5,
@@ -41,17 +43,19 @@ Widget saidLogo(BuildContext context, int color) {
 }
 
 Widget customText(BuildContext context, String text, double fontSize,
-    bool decoration, int color,
-    
-    {FontWeight weight = FontWeight.normal, TextAlign align = TextAlign.end, TextDirection dir = TextDirection.rtl,  dynamic height}) {
+    bool decoration, Color color,
+    {FontWeight weight = FontWeight.normal,
+    TextAlign align = TextAlign.end,
+    TextDirection dir = TextDirection.rtl,
+    dynamic height}) {
   return Text(
     text,
     textDirection: dir,
     textAlign: align,
     style: TextStyle(
         fontFamily: 'NotoBold',
-        height:height,
-        color: Color(color),
+        height: height,
+        color: color,
         fontSize: fontSize,
         fontWeight: weight,
         decoration:

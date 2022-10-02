@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
 import '../../components/styledWidgets/styled_buttons.dart';
 import '../../components/styledWidgets/styled_texts.dart';
 
-class Subscription extends StatelessWidget {
+class Subscription extends StatefulWidget {
   const Subscription({Key? key}) : super(key: key);
 
   @override
+  State<Subscription> createState() => _SubscriptionState();
+}
+
+class _SubscriptionState extends State<Subscription> {
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SafeArea(
         child: Column(
           children: [
@@ -22,7 +30,7 @@ class Subscription extends StatelessWidget {
               child: IconButton(
                 icon: Image.asset('assets/icons/back.png'),
                 iconSize: 40,
-                color: const Color(0xFFACF0FF),
+                color: lightCyan,
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -30,23 +38,23 @@ class Subscription extends StatelessWidget {
             ),
             Column(
               children: [
-                customText(context, 'صفحة', 25, false, 0xFFFFFFFF,
+                customText(context, 'صفحة', 25, false, whiteColor,
                     align: TextAlign.start, height: 0.1),
                 const SizedBox(height: 3),
-                customText(context, 'إدارة الاشتراك', 25, false, 0xFFFFFFFF,
+                customText(context, 'إدارة الاشتراك', 25, false, whiteColor,
                     align: TextAlign.start),
               ],
             ),
-            const SizedBox(height: 260),
+            SizedBox(height: height*0.333),
             Container(
               width: double.infinity,
-              height: 365,
+              height: height*0.45,
               decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: whiteColor,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
+                      color: transparentBlack,
                       offset: Offset(0, 1),
                     ),
                   ],
@@ -63,13 +71,13 @@ class Subscription extends StatelessWidget {
                         Container(
                             alignment: Alignment.centerRight,
                             child: customText(context, 'الاشتراك الحالي:', 21,
-                                false, 0xFF0268B2,
+                                false, primaryBlue,
                                 align: TextAlign.start)),
                         const SizedBox(height: 25),
                         Container(
                             alignment: Alignment.centerRight,
                             child: customText(context, 'الباقة الشهرية', 19,
-                                false, 0xFF0268B2,
+                                false, primaryBlue,
                                 align: TextAlign.start)),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,11 +85,11 @@ class Subscription extends StatelessWidget {
                             Container(
                                 margin: const EdgeInsets.only(left: 40),
                                 child: customText(
-                                    context, 'ر.س', 20, false, 0xFF0268B2,
+                                    context, 'ر.س', 20, false, primaryBlue,
                                     align: TextAlign.start,
                                     weight: FontWeight.w800)),
                             const SizedBox(width: 5),
-                            customText(context, '50', 55, false, 0xFF0268B2,
+                            customText(context, '50', 55, false, primaryBlue,
                                 align: TextAlign.start,
                                 weight: FontWeight.w800),
                             const SizedBox(width: 49),
@@ -93,7 +101,7 @@ class Subscription extends StatelessWidget {
                                     'باقة سائد لايت المحاسبي الشهري',
                                     13,
                                     false,
-                                    0xFF0268B2,
+                                    primaryBlue,
                                     align: TextAlign.start,
                                     weight: FontWeight.w800))
                           ],

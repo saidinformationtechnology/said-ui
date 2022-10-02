@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
 import '../../components/styledWidgets/styled_texts.dart';
 
-class AboutApp extends StatelessWidget {
+class AboutApp extends StatefulWidget {
   const AboutApp({Key? key}) : super(key: key);
 
+  @override
+  State<AboutApp> createState() => _AboutAppState();
+}
+
+class _AboutAppState extends State<AboutApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +42,10 @@ class AboutApp extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                customText(context,'تم إصدار هذا البرنامج', 17, false, 0xFFFFFFFF),
-                customText(context, 'من فريق سائد لتقنية المعلومات', 17, false, 0xFFFFFFFF),
+                customText(
+                    context, 'تم إصدار هذا البرنامج', 17, false, whiteColor),
+                customText(context, 'من فريق سائد لتقنية المعلومات', 17, false,
+                    whiteColor),
               ],
             )
           ],

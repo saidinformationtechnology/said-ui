@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
 import '../components/Dilalogs/dialogs.dart';
 import '../components/styledWidgets/styled_texts.dart';
 
-class Questions extends StatelessWidget {
+class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
 
+  @override
+  State<Questions> createState() => _QuestionsState();
+}
+
+class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -44,7 +50,7 @@ class Questions extends StatelessWidget {
                         style: TextStyle(
                           height: 3,
                           fontFamily: 'NotoBold',
-                          color: Color.fromRGBO(50, 185, 215, 1),
+                          color: cyan,
                           fontSize: 22,
                         ),
                       ),
@@ -69,7 +75,7 @@ class Questions extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontFamily: 'NotoBold',
-                      color: Color.fromRGBO(50, 185, 215, 1),
+                      color: cyan,
                       fontSize: 22,
                     ),
                   ),
@@ -102,7 +108,7 @@ Widget questionTab(
       children: [
         if (tab) ...[
           TextButton(
-            child: customText(context, text, 17, false, 0xFFFFFFFF,
+            child: customText(context, text, 17, false, whiteColor,
                 align: TextAlign.start),
             onPressed: () {
               Dialogs.addProductDialog(context, content);
@@ -110,10 +116,9 @@ Widget questionTab(
           ),
           const Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-              child:
-                  Icon(Icons.minimize_rounded, color: Colors.white, size: 30)),
+              child: Icon(Icons.minimize_rounded, color: whiteColor, size: 30)),
         ] else ...[
-          customText(context, text, 18, false, 0xFFFFFFFF,
+          customText(context, text, 18, false, whiteColor,
               align: TextAlign.start),
           const Padding(
               padding: EdgeInsetsDirectional.fromSTEB(5, 10, 10, 10),

@@ -2,15 +2,21 @@
 
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_buttons.dart';
 
-class Payment extends StatelessWidget {
+class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
 
   @override
+  State<Payment> createState() => _PaymentState();
+}
+
+class _PaymentState extends State<Payment> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SafeArea(
         child: Column(
           children: [
@@ -34,7 +40,7 @@ class Payment extends StatelessWidget {
                 style: TextStyle(
                   height: 0.1,
                   fontFamily: 'NotoBold',
-                  color: Colors.white,
+                  color: whiteColor,
                   fontSize: 25,
                 ),
               ),
@@ -54,7 +60,7 @@ class Payment extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontFamily: 'NotoBold',
-                      color: Colors.white,
+                      color: whiteColor,
                       fontSize: 20,
                     ),
                   ),
@@ -64,7 +70,7 @@ class Payment extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontFamily: 'NotoBold',
-                      color: Colors.white,
+                      color: whiteColor,
                       fontSize: 17,
                     ),
                   )
@@ -82,11 +88,11 @@ class Payment extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
+                      color: transparentBlack,
                       offset: Offset(0, 1),
                     ),
                   ],
-                  color: Colors.white,
+                  color: whiteColor,
                 ),
                 child: Column(
                   children: [
@@ -98,7 +104,7 @@ class Payment extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                           fontFamily: 'NotoBold',
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                           fontSize: 16,
                         ),
                       ),
@@ -111,9 +117,8 @@ class Payment extends StatelessWidget {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(9),
-                          color: Colors.white,
-                          border:
-                              Border.all(color: Color(0xFF0268B2), width: 1),
+                          color: whiteColor,
+                          border: Border.all(color: primaryBlue, width: 1),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -128,7 +133,7 @@ class Payment extends StatelessWidget {
                                     textDirection: TextDirection.rtl,
                                     style: TextStyle(
                                       fontFamily: 'NotoBold',
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                       fontSize: 14,
                                     ),
                                   ),
@@ -137,7 +142,7 @@ class Payment extends StatelessWidget {
                                     textDirection: TextDirection.rtl,
                                     style: TextStyle(
                                       fontFamily: 'NotoBold',
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                       fontSize: 14,
                                     ),
                                   ),
@@ -169,7 +174,7 @@ class Payment extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 fontFamily: 'NotoBold',
-                                color: Color(0xFF0268B2),
+                                color: primaryBlue,
                                 fontSize: 15,
                               ),
                             ),
@@ -183,7 +188,7 @@ class Payment extends StatelessWidget {
                                       textDirection: TextDirection.rtl,
                                       style: TextStyle(
                                         fontFamily: 'NotoBold',
-                                        color: Color(0xFF0268B2),
+                                        color: primaryBlue,
                                         fontSize: 15,
                                       ),
                                     ),
@@ -193,7 +198,7 @@ class Payment extends StatelessWidget {
                                     textDirection: TextDirection.rtl,
                                     style: TextStyle(
                                       fontFamily: 'NotoBold',
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                       fontSize: 15,
                                     ),
                                   ),
@@ -208,7 +213,7 @@ class Payment extends StatelessWidget {
                                     textDirection: TextDirection.rtl,
                                     style: TextStyle(
                                       fontFamily: 'NotoBold',
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -218,7 +223,7 @@ class Payment extends StatelessWidget {
                                   textDirection: TextDirection.rtl,
                                   style: TextStyle(
                                     fontFamily: 'NotoBold',
-                                    color: Color(0xFF0268B2),
+                                    color: primaryBlue,
                                     fontSize: 16,
                                   ),
                                 ),

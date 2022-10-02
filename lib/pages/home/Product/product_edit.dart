@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:lastsaid/pages/components/Dilalogs/dialogs.dart';
-import 'package:lastsaid/pages/components/styledWidgets/styled_inputs.dart';
 
-import '../../services/constrants.dart';
-import '../components/switcher.dart';
+import '../../../services/constrants.dart';
 
-class ProductInfo extends StatefulWidget {
-  const ProductInfo({Key? key}) : super(key: key);
+class ProductEdit extends StatefulWidget {
+  const ProductEdit({Key? key}) : super(key: key);
 
   @override
-  State<ProductInfo> createState() => _ProductInfoState();
+  State<ProductEdit> createState() => _ProductEditState();
 }
 
-class _ProductInfoState extends State<ProductInfo> {
+class _ProductEditState extends State<ProductEdit> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -39,8 +36,7 @@ class _ProductInfoState extends State<ProductInfo> {
                     children: [
                       IconButton(
                           icon: Image.asset('assets/icons/clear.png'),
-                          iconSize: 50,
-                          // color: primaryBlue,
+                          iconSize: 52,
                           onPressed: () {
                             Navigator.pop(context);
                           }),
@@ -81,7 +77,7 @@ class _ProductInfoState extends State<ProductInfo> {
                       ],
                       color: Colors.grey[700]),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 15),
                 Container(
                   width: double.infinity,
                   margin: const EdgeInsets.only(right: 6),
@@ -89,7 +85,7 @@ class _ProductInfoState extends State<ProductInfo> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Text(
-                        'بيانات المنتج',
+                        'تعديل المنتج',
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                             fontWeight: FontWeight.w800,
@@ -124,50 +120,113 @@ class _ProductInfoState extends State<ProductInfo> {
                           child: Column(
                             children: [
                               const SizedBox(height: 30),
-                              inputField(context, placeholder: 'باركود المنتج'),
-                              const SizedBox(height: 40),
-                              inputField(context, placeholder: 'اسم المنتج'),
-                              const SizedBox(height: 15),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      numberInputField(context),
-                                      const SizedBox(width: 4),
-                                      const Text('سعر البيع:',
-                                          textDirection: TextDirection.rtl,
-                                          style: TStyle.tstyle),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      numberInputField(context),
-                                      const SizedBox(width: 4),
-                                      const Text('سعر الشراء:',
-                                          textDirection: TextDirection.rtl,
-                                          style: TStyle.tstyle),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 15),
-                              Row(
-                                children: const [
-                                  Text(
-                                    'تضمين الضريبة',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      fontFamily: 'NotoBold',
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w800,
-                                      color: cyan,
+                              Container(
+                                width: double.infinity,
+                                height: 31,
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  borderRadius: BorderRadius.circular(7),
+                                  border:
+                                      Border.all(color: Colors.grey.shade200),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      color: transparentBlack,
+                                      offset: Offset(0, 1),
                                     ),
+                                  ],
+                                ),
+                                child: TextField(
+                                  textAlign: TextAlign.end,
+                                  textInputAction: TextInputAction.next,
+                                  decoration: InputDecoration(
+                                    isDense: true, // Added this
+                                    contentPadding: const EdgeInsets.only(
+                                        bottom: 0,
+                                        top: 2,
+                                        left: 7,
+                                        right: 8), // Added this
+                                    hintText: 'باركود المنتج',
+                                    hintStyle: TextStyle(
+                                        fontFamily: 'NotoBold',
+                                        color: Colors.grey.shade500,
+                                        fontSize: 13),
+                                    border: InputBorder.none,
                                   ),
-                                  SizedBox(width: 3),
-                                  MySwitcher(),
-                                ],
+                                ),
+                              ),
+                              const SizedBox(height: 40),
+                              Container(
+                                width: double.infinity,
+                                height: 31,
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  borderRadius: BorderRadius.circular(7),
+                                  border:
+                                      Border.all(color: Colors.grey.shade200),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      color: transparentBlack,
+                                      offset: Offset(0, 1),
+                                    ),
+                                  ],
+                                ),
+                                child: TextField(
+                                  textAlign: TextAlign.end,
+                                  textInputAction: TextInputAction.next,
+                                  decoration: InputDecoration(
+                                    isDense: true, // Added this
+                                    contentPadding: const EdgeInsets.only(
+                                        bottom: 0,
+                                        top: 2,
+                                        left: 7,
+                                        right: 8), // Added this
+                                    hintText: 'اسم المنتج',
+                                    hintStyle: TextStyle(
+                                        fontFamily: 'NotoBold',
+                                        color: Colors.grey.shade500,
+                                        fontSize: 13),
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 40),
+                              Container(
+                                width: double.infinity,
+                                height: 31,
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  borderRadius: BorderRadius.circular(7),
+                                  border:
+                                      Border.all(color: Colors.grey.shade200),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      color: transparentBlack,
+                                      offset: Offset(0, 1),
+                                    ),
+                                  ],
+                                ),
+                                child: TextField(
+                                  textAlign: TextAlign.end,
+                                  keyboardType: TextInputType.number,
+                                  textInputAction: TextInputAction.next,
+                                  decoration: InputDecoration(
+                                    isDense: true, // Added this
+                                    contentPadding: const EdgeInsets.only(
+                                        bottom: 0,
+                                        top: 2,
+                                        left: 7,
+                                        right: 8), // Added this
+                                    hintText: 'سعر المنتج',
+                                    hintStyle: TextStyle(
+                                        fontFamily: 'NotoBold',
+                                        color: Colors.grey.shade500,
+                                        fontSize: 13),
+                                    border: InputBorder.none,
+                                  ),
+                                ),
                               ),
                               const SizedBox(height: 15),
                               Padding(
@@ -189,18 +248,15 @@ class _ProductInfoState extends State<ProductInfo> {
                                       ),
                                     ),
                                   ),
-                                  onPressed: () {
-                                    Dialogs.addProductDialog(
-                                        context, 'تمت إضافة بيانات المنتج');
-                                  },
+                                  onPressed: () {},
                                   child: Container(
                                     height: 33,
                                     width: double.infinity,
                                     alignment: Alignment.center,
                                     child: const Text(
-                                      'حفظ',
+                                      'حفظ التعديل',
                                       style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 14,
                                           fontFamily: 'NotoBold',
                                           color: whiteColor),
                                     ),
@@ -221,13 +277,4 @@ class _ProductInfoState extends State<ProductInfo> {
       ),
     );
   }
-}
-
-class TStyle {
-  static const tstyle = TextStyle(
-    fontFamily: 'NotoBold',
-    fontSize: 13,
-    fontWeight: FontWeight.w800,
-    color: primaryBlue,
-  );
 }

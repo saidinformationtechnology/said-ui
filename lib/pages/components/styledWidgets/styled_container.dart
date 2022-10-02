@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
+
 class CustomContainer extends StatefulWidget {
   final Widget child;
   final double round;
@@ -7,18 +9,18 @@ class CustomContainer extends StatefulWidget {
   final double height;
   final bool border;
   final bool shadow;
-  final int color;
+  final Color color;
 
-  const CustomContainer({
-    Key? key,
-    required this.child,
-    required this.round,
-    required this.width,
-    required this.height,
-    this.border = false,
-    this.shadow = true,
-    this.color = 0xFFFFFFFF
-  }) : super(key: key);
+  const CustomContainer(
+      {Key? key,
+      required this.child,
+      required this.round,
+      this.width = double.infinity,
+      this.height = double.infinity,
+      this.border = false,
+      this.shadow = true,
+      this.color = whiteColor})
+      : super(key: key);
 
   @override
   State<CustomContainer> createState() => _CustomContainerState();
@@ -31,7 +33,7 @@ class _CustomContainerState extends State<CustomContainer> {
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
-        color: Color(widget.color),
+        color: widget.color,
         borderRadius: BorderRadius.circular(widget.round),
         border: widget.border
             ? Border.all(color: Colors.grey.shade200)
@@ -40,7 +42,7 @@ class _CustomContainerState extends State<CustomContainer> {
           widget.shadow
               ? const BoxShadow(
                   blurRadius: 3.0,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0.0, 1.0),
                 )
               : const BoxShadow(
@@ -65,7 +67,7 @@ Widget paymentHeader(BuildContext context) {
         child: IconButton(
           icon: Image.asset('assets/icons/back.png'),
           iconSize: 40,
-          color: const Color(0xFFACF0FF),
+          color: lightCyan,
           onPressed: () {
             Navigator.pop(context);
           },
@@ -78,7 +80,7 @@ Widget paymentHeader(BuildContext context) {
         style: TextStyle(
           height: 0.1,
           fontFamily: 'NotoBold',
-          color: Colors.white,
+          color: whiteColor,
           fontSize: 25,
         ),
       ),

@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_buttons.dart';
 import '../components/styledWidgets/styled_texts.dart';
 
-class Verification extends StatelessWidget {
+class Verification extends StatefulWidget {
   const Verification({Key? key}) : super(key: key);
 
+  @override
+  State<Verification> createState() => _VerificationState();
+}
+
+class _VerificationState extends State<Verification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SafeArea(
         child: Center(
           child: Column(
             children: [
               const SizedBox(height: 110),
-              customText(context, 'كود التحقق', 22, false, 0xFFFFFFFF),
-              customText(context, 'تم إرسال كود التحقق', 17, false, 0xFFFFFFFF),
+              customText(context, 'كود التحقق', 22, false, whiteColor),
+              customText(context, 'تم إرسال كود التحقق', 17, false, whiteColor),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -26,13 +32,13 @@ class Verification extends StatelessWidget {
                     '+966 555 111 999',
                     style: TextStyle(
                       fontFamily: 'NotoBold',
-                      color: Colors.white,
+                      color: whiteColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(width: 7),
-                  customText(context, 'إلى الرقم', 17, false, 0xFFFFFFFF),
+                  customText(context, 'إلى الرقم', 17, false, whiteColor),
                 ],
               ),
               const SizedBox(height: 14),
@@ -56,7 +62,7 @@ class Verification extends StatelessWidget {
                       '(00:00)',
                       style: TextStyle(
                         fontFamily: 'NotoBold',
-                        color: Colors.white,
+                        color: whiteColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -81,7 +87,7 @@ class Verification extends StatelessWidget {
                           'هل تريد تغيير رقم الجوال بالفعل؟',
                           20.0,
                           false,
-                          0xFF0268B2,
+                          primaryBlue,
                           weight: FontWeight.w600,
                           align: TextAlign.center),
                       actions: [
@@ -97,7 +103,7 @@ class Verification extends StatelessWidget {
                                 }),
                                 dialogBtn(context, 'نعم', () {
                                   Navigator.pushNamed(context, '/phoneinput');
-                                }, color: Colors.white),
+                                }, color: whiteColor),
                               ],
                             ),
                           ),
@@ -129,19 +135,19 @@ class _MyCodeState extends State<MyCode> {
       length: 4,
       defaultPinTheme: PinTheme(
         textStyle: const TextStyle(
-          color: Color(0xFF0268B2),
+          color: primaryBlue,
           fontSize: 23,
           fontWeight: FontWeight.w600,
         ),
         width: 45,
         height: 52,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(10),
           boxShadow: const [
             BoxShadow(
               blurRadius: 3,
-              color: Color(0x33000000),
+              color: transparentBlack,
               offset: Offset(0, 1),
             ),
           ],
@@ -152,11 +158,11 @@ class _MyCodeState extends State<MyCode> {
 }
 
 Widget dialogBtn(BuildContext context, String text, Function doSomething,
-    {Color color = const Color.fromRGBO(50, 185, 215, 1)}) {
+    {Color color = cyan}) {
   return ElevatedButton(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(color),
-      foregroundColor: MaterialStateProperty.all(const Color(0xFF0268B2)),
+      foregroundColor: MaterialStateProperty.all(primaryBlue),
       padding:
           MaterialStateProperty.all(const EdgeInsets.fromLTRB(60, 10, 60, 10)),
       shape: MaterialStateProperty.all(
@@ -165,7 +171,7 @@ Widget dialogBtn(BuildContext context, String text, Function doSomething,
         ),
       ),
     ),
-    child: customText(context, text, 15.0, false, 0xFF0268B2,
+    child: customText(context, text, 15.0, false, primaryBlue,
         weight: FontWeight.w600),
     onPressed: () {
       doSomething();

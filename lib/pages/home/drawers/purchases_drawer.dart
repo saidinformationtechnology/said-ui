@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PurchasesDrawer extends StatelessWidget {
+import '../../../services/constrants.dart';
+
+class PurchasesDrawer extends StatefulWidget {
   const PurchasesDrawer({Key? key}) : super(key: key);
 
+  @override
+  State<PurchasesDrawer> createState() => _PurchasesDrawerState();
+}
+
+class _PurchasesDrawerState extends State<PurchasesDrawer> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +25,7 @@ class PurchasesDrawer extends StatelessWidget {
               IconButton(
                   icon: Image.asset('assets/icons/clear1.png'),
                   iconSize: 40,
-                  // color: Color(0xFF0268B2),
+                  // color: primaryBlue,
                   onPressed: () {
                     Navigator.pop(context);
                   }),
@@ -30,9 +37,9 @@ class PurchasesDrawer extends StatelessWidget {
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(50, 185, 215, 1),
+               cyan,
             ),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
+            foregroundColor: MaterialStateProperty.all(whiteColor),
             padding: MaterialStateProperty.all(
                 const EdgeInsets.fromLTRB(115, 10, 115, 10)),
             shape: MaterialStateProperty.all(
@@ -56,9 +63,9 @@ class PurchasesDrawer extends StatelessWidget {
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(50, 185, 215, 1),
+               cyan,
             ),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
+            foregroundColor: MaterialStateProperty.all(whiteColor),
             padding: MaterialStateProperty.all(
                 const EdgeInsets.fromLTRB(132, 10, 132, 10)),
             shape: MaterialStateProperty.all(

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/styledWidgets/styled_texts.dart';
 
+import '../../services/constrants.dart';
+
 class Terms extends StatelessWidget {
   const Terms({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(23, 60, 23, 60),
@@ -16,11 +18,11 @@ class Terms extends StatelessWidget {
             height: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
+              color: whiteColor,
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -31,7 +33,8 @@ class Terms extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   const SizedBox(height: 20),
-                  customText(context, 'الشروط والأحكام:', 16.5, false, 0xFF0268B2), 
+                  customText(
+                      context, 'الشروط والأحكام:', 16.5, false, primaryBlue),
                   Container(
                     height: 490,
                     decoration: const BoxDecoration(
@@ -278,13 +281,13 @@ class Terms extends StatelessWidget {
                             // shadowColor: MaterialStateProperty.all(Color(0xF9CC4E1)),
                             side: MaterialStateProperty.all(
                               const BorderSide(
-                                  color: Color.fromRGBO(50, 185, 215, 1),
+                                  color: cyan,
                                   width: 0.2),
                             ),
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.white),
+                                MaterialStateProperty.all(whiteColor),
                             foregroundColor: MaterialStateProperty.all(
-                              const Color.fromRGBO(50, 185, 215, 1),
+                               cyan,
                             ),
                             padding: MaterialStateProperty.all(
                                 const EdgeInsets.fromLTRB(48, 9, 48, 9)),
@@ -308,9 +311,9 @@ class Terms extends StatelessWidget {
                           style: ButtonStyle(
                             elevation: MaterialStateProperty.all(3.5),
                             backgroundColor: MaterialStateProperty.all(
-                                const Color.fromRGBO(50, 185, 215, 1)),
+                                 cyan),
                             foregroundColor:
-                                MaterialStateProperty.all(Colors.white),
+                                MaterialStateProperty.all(whiteColor),
                             padding: MaterialStateProperty.all(
                                 const EdgeInsets.fromLTRB(31, 9, 31, 9)),
                             shape: MaterialStateProperty.all(
@@ -344,7 +347,7 @@ class Terms extends StatelessWidget {
 class TitleStyle {
   static const tstyle = TextStyle(
       fontFamily: 'NotoBold',
-      color: Color.fromRGBO(50, 185, 215, 1),
+      color: cyan,
       decoration: TextDecoration.underline,
       fontSize: 15,
       fontWeight: FontWeight.bold);
@@ -353,7 +356,7 @@ class TitleStyle {
 class ParagraphStyle {
   static const pstyle = TextStyle(
       fontFamily: 'NotoBold',
-      color: Color(0xFF0268B2),
+      color: primaryBlue,
       fontSize: 13.5,
       height: 1.8);
 }

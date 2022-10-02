@@ -2,15 +2,23 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../services/constrants.dart';
 import 'styled_container.dart';
 
-Widget inputField(BuildContext context, {String placeholder = '',
+Widget inputField(
+  BuildContext context, {
+  String placeholder = '',
   TextInputType type = TextInputType.text,
   TextInputAction action = TextInputAction.next,
-  double top =  5.0, double bottom = 0.0,
-  double width = double.infinity, height = 31.0, round = 7.0, border = true, double size= 13.0,
+  double top = 5.0,
+  double bottom = 0.0,
+  double width = double.infinity,
+  double height = 31.0,
+  round = 7.0,
+  border = true,
+  double size = 13.0,
   bool shadow = true,
-  int color = 0xFFFFFFFF,
+  Color color = whiteColor,
   double fontsize = 12.0,
   int max = 1,
 }) {
@@ -28,21 +36,23 @@ Widget inputField(BuildContext context, {String placeholder = '',
     child: TextField(
       style: TextStyle(
         fontFamily: 'NotoBold',
-        color: Color(0xFF0268B2),
+        color: primaryBlue,
         fontWeight: FontWeight.bold,
         fontSize: fontsize,
       ),
       maxLines: max,
       textAlign: TextAlign.end,
       textInputAction: action,
-      keyboardType:type,
+      keyboardType: type,
       decoration: InputDecoration(
         isDense: true, // Added this
         contentPadding: EdgeInsets.only(
             bottom: bottom, top: top, left: 7, right: 8), // Added this
-        hintText: value?placeholder:null,
+        hintText: value ? placeholder : null,
         hintStyle: TextStyle(
-            fontFamily: 'NotoBold', color: Colors.grey.shade500, fontSize: size),
+            fontFamily: 'NotoBold',
+            color: Colors.grey.shade500,
+            fontSize: size),
         border: InputBorder.none,
       ),
     ),
@@ -54,12 +64,12 @@ Widget numberInputField(BuildContext context) {
     width: 60,
     height: 32,
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: whiteColor,
       borderRadius: BorderRadius.circular(8),
       boxShadow: const [
         BoxShadow(
           blurRadius: 3,
-          color: Color(0x33000000),
+          color: transparentBlack,
           offset: Offset(0, 1),
         ),
       ],
@@ -67,7 +77,7 @@ Widget numberInputField(BuildContext context) {
     child: const TextField(
       style: TextStyle(
         fontSize: 13,
-        color: Color(0xFF0268B2),
+        color: primaryBlue,
       ),
       textAlign: TextAlign.center,
       textInputAction: TextInputAction.next,

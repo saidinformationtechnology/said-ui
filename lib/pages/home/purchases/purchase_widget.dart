@@ -8,6 +8,7 @@ import 'package:lastsaid/pages/home/purchases/purchase_class.dart';
 import 'package:lastsaid/pages/home/purchases/purchase_list.dart';
 import 'package:lastsaid/pages/home/sales/sales_widget.dart';
 
+import '../../../services/constrants.dart';
 import '../../components/Dilalogs/dialogs.dart';
 import '../../components/styledWidgets/styled_container.dart';
 import '../../components/styledWidgets/styled_texts.dart';
@@ -48,9 +49,9 @@ class _PurchasesState extends State<Purchases> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customText(context, 'السعر', 11, false, 0xFF32b9d7),
-                    customText(context, 'الكمية', 11, false, 0xFF32b9d7),
-                    customText(context, 'العنصر', 11, false, 0xFF32b9d7),
+                    customText(context, 'السعر', 11, false, cyan),
+                    customText(context, 'الكمية', 11, false, cyan),
+                    customText(context, 'العنصر', 11, false, cyan),
                   ]),
             ),
           ),
@@ -73,7 +74,7 @@ class _PurchasesState extends State<Purchases> {
                       SlidableAction(
                         onPressed: ((context) => {deleteDialog(index)}),
                         icon: Icons.do_disturb_on_rounded,
-                        foregroundColor: Color(0xffBE3939),
+                        foregroundColor: const Color(0xffBE3939),
                       ),
                     ]),
                     endActionPane:
@@ -81,7 +82,7 @@ class _PurchasesState extends State<Purchases> {
                       SlidableAction(
                         onPressed: ((context) => {deleteDialog(index)}),
                         icon: Icons.do_disturb_on_rounded,
-                        foregroundColor: Color(0xffBE3939),
+                        foregroundColor: const Color(0xffBE3939),
                       ),
                     ]),
                     child: buildListTile(item),
@@ -91,21 +92,21 @@ class _PurchasesState extends State<Purchases> {
             ),
           ),
           Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+                border: Border.all(color: Colors.grey.shade200),
               ),
-              border: Border.all(color: Colors.grey.shade200),
-            ),
-            child:tableFooter(context, 5.4625, 0.7125, 4.75)
-            ),
+              child: tableFooter(context, 5.4625, 0.7125, 4.75)),
         ],
       ),
     );
   }
-    Widget buildListTile(Item item) => Column(
+
+  Widget buildListTile(Item item) => Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Padding(
@@ -122,8 +123,7 @@ class _PurchasesState extends State<Purchases> {
                         builder: (c) => BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                           child: AlertDialog(
-                            backgroundColor:
-                                const Color.fromRGBO(50, 185, 215, 1),
+                            backgroundColor: cyan,
                             insetPadding:
                                 const EdgeInsets.fromLTRB(50, 0, 50, 0),
                             shape: const RoundedRectangleBorder(
@@ -162,8 +162,7 @@ class _PurchasesState extends State<Purchases> {
                         builder: (c) => BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                           child: AlertDialog(
-                            backgroundColor:
-                                const Color.fromRGBO(50, 185, 215, 1),
+                            backgroundColor: cyan,
                             insetPadding:
                                 const EdgeInsets.fromLTRB(50, 0, 50, 0),
                             shape: const RoundedRectangleBorder(
@@ -179,11 +178,11 @@ class _PurchasesState extends State<Purchases> {
                       alignment: WrapAlignment.center,
                       children: [
                         customText(context, item.total.toString(), 12, false,
-                            0xFF76797B,
+                            lightGray,
                             weight: FontWeight.bold),
-                        customText(context, item.unit, 11, false, 0xFF76797B,
+                        customText(context, item.unit, 11, false, lightGray,
                             weight: FontWeight.bold),
-                        customText(context, item.name, 11, false, 0xFF76797B,
+                        customText(context, item.name, 11, false, lightGray,
                             weight: FontWeight.bold)
                       ],
                     ),
@@ -197,4 +196,4 @@ class _PurchasesState extends State<Purchases> {
           const SizedBox(height: 2),
         ],
       );
-  }
+}

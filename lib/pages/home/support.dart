@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_texts.dart';
 
-class Support extends StatelessWidget {
+class Support extends StatefulWidget {
   const Support({Key? key}) : super(key: key);
 
   @override
+  State<Support> createState() => _SupportState();
+}
+
+class _SupportState extends State<Support> {
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: Column(
         children: [
           Container(
             width: double.infinity,
-            height: 156,
+            height: height*0.20,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(25),
                 bottomLeft: Radius.circular(25),
               ), //BorderRadius.vertical
-              color: Color(0xFFFCFCFC),
+              color: thirdWhite,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -38,28 +45,28 @@ class Support extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      customText(context, 'الدعم الفني', 26, false, 0xFF0268B2)
+                      customText(context, 'الدعم الفني', 26, false, primaryBlue)
                     ],
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 125),
+          SizedBox(height: height*0.15),
           Container(
             width: double.infinity,
-            height: 461,
+            height: height*0.576,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(25),
                 topLeft: Radius.circular(25),
               ),
               //BorderRadius.vertical
-              color: Color(0xFFFCFCFC),
+              color: thirdWhite,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 3,
-                  color: Color(0x33000000),
+                  color: transparentBlack,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -69,18 +76,18 @@ class Support extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 36),
-                  supportBtn(
-                      context, 'المحادثة المباشرة', 'assets/icons/chat.png', (){}),
+                  supportBtn(context, 'المحادثة المباشرة',
+                      'assets/icons/chat.png', () {}),
                   const SizedBox(height: 16),
-                  supportBtn(context, 'اترك رسالتك',
-                      'assets/icons/text.png', () {
-                        Navigator.pushNamed(context, '/message');
-                      }),
+                  supportBtn(context, 'اترك رسالتك', 'assets/icons/text.png',
+                      () {
+                    Navigator.pushNamed(context, '/message');
+                  }),
                   const SizedBox(height: 16),
                   supportBtn(context, 'الأسئلة الشائعة',
                       'assets/icons/question-circle.png', () {
-                        Navigator.pushNamed(context, '/questions');
-                      }),
+                    Navigator.pushNamed(context, '/questions');
+                  }),
                   const SizedBox(height: 109),
                   followUs(context)
                 ],
@@ -104,19 +111,19 @@ Widget supportBtn(
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13),
-        border: Border.all(color: const Color(0xFF0268B2), width: 1),
+        border: Border.all(color:  primaryBlue, width: 1),
       ),
       child: Padding(
         padding: const EdgeInsets.only(right: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            customText(context,text, 19, false, 0xFF32b9d7,
+            customText(context, text, 19, false, cyan,
                 align: TextAlign.start),
             const SizedBox(width: 13),
             ImageIcon(
               AssetImage(icon),
-              color: const Color(0xFF0268B2),
+              color:  primaryBlue,
               size: 30,
             ),
           ],
@@ -129,7 +136,8 @@ Widget supportBtn(
 Widget followUs(BuildContext context) {
   return Column(
     children: [
-      customText(context,'تابعنا على قنوات التواصل التالية:', 14,false, 0xFF0268B2),
+      customText(
+          context, 'تابعنا على قنوات التواصل التالية:', 14, false, primaryBlue),
       const SizedBox(height: 10),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 38),
@@ -141,7 +149,7 @@ Widget followUs(BuildContext context) {
               onPressed: () {},
               icon: const ImageIcon(
                 AssetImage('assets/icons/instagram.png'),
-                color: Color.fromRGBO(50, 185, 215, 1),
+                color: cyan,
                 size: 29,
               ),
             ),
@@ -149,7 +157,7 @@ Widget followUs(BuildContext context) {
               onPressed: () {},
               icon: const ImageIcon(
                 AssetImage('assets/icons/twitter.png'),
-                color: Color.fromRGBO(50, 185, 215, 1),
+                color: cyan,
                 size: 29,
               ),
             ),
@@ -157,7 +165,7 @@ Widget followUs(BuildContext context) {
               onPressed: () {},
               icon: const ImageIcon(
                 AssetImage('assets/icons/linkedin.png'),
-                color: Color.fromRGBO(50, 185, 215, 1),
+                color: cyan,
                 size: 29,
               ),
             ),
@@ -165,7 +173,7 @@ Widget followUs(BuildContext context) {
               onPressed: () {},
               icon: const ImageIcon(
                 AssetImage('assets/icons/youtube.png'),
-                color: Color.fromRGBO(50, 185, 215, 1),
+                color: cyan,
                 size: 29,
               ),
             ),

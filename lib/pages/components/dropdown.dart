@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
+
 class DropdownMenu extends StatefulWidget {
   const DropdownMenu({Key? key}) : super(key: key);
 
@@ -20,12 +22,12 @@ class _DropdownMenuState extends State<DropdownMenu> {
           fontFamily: 'NotoBold',
           fontSize: 11,
           fontWeight: FontWeight.w800,
-          color: Color(0xFF0268B2),
+          color: primaryBlue,
         ),
         // isExpanded: true,
         isDense: true,
         dropdownColor: Color(0xFFADEEFE),
-        iconEnabledColor: Color(0xFF0268B2),
+        iconEnabledColor: primaryBlue,
         hint: Text(
           'اختر طريقة الدفع',
           textDirection: TextDirection.rtl,
@@ -33,7 +35,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
             fontFamily: 'NotoBold',
             fontSize: 13,
             fontWeight: FontWeight.w800,
-            color: Color(0xFF0268B2),
+            color: primaryBlue,
           ),
         ),
         items: <String>['مدى', 'فيزا', 'ماستر كارد'].map((String value) {
@@ -46,7 +48,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
                     fontFamily: 'NotoBold',
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
-                    color: Color(0xFF0268B2),
+                    color: primaryBlue,
                   )),
               onPressed: () {
                 Navigator.pushNamed(context, '/addCard');

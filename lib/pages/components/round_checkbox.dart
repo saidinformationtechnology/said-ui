@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
+
 class MyCheckBox extends StatefulWidget {
   const MyCheckBox({Key? key}) : super(key: key);
 
@@ -17,12 +19,12 @@ class _MyCheckBoxState extends State<MyCheckBox> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
-          color: Colors.white,
+          color: whiteColor,
         ),
       ),
       child: Checkbox(
-        checkColor: Colors.white,
-        fillColor: MaterialStateProperty.all(const Color(0xFF0268B2)),
+        checkColor: whiteColor,
+        fillColor: MaterialStateProperty.all(primaryBlue),
         value: isChecked,
         onChanged: (bool? value) {
           setState(() {

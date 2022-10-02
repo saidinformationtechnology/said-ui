@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SalesDrawer extends StatelessWidget {
+import '../../../services/constrants.dart';
+
+class SalesDrawer extends StatefulWidget {
   const SalesDrawer({Key? key}) : super(key: key);
 
+  @override
+  State<SalesDrawer> createState() => _SalesDrawerState();
+}
+
+class _SalesDrawerState extends State<SalesDrawer> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +25,7 @@ class SalesDrawer extends StatelessWidget {
               IconButton(
                   icon: Image.asset('assets/icons/clear1.png'),
                   iconSize: 40,
-                  // color: Color(0xFF0268B2),
+                  // color: primaryBlue,
                   onPressed: () {
                     Navigator.pop(context);
                   }),
@@ -30,9 +37,9 @@ class SalesDrawer extends StatelessWidget {
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(50, 185, 215, 1),
+               cyan,
             ),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
+            foregroundColor: MaterialStateProperty.all(whiteColor),
             padding: MaterialStateProperty.all(
                 const EdgeInsets.fromLTRB(120, 10, 120, 10)),
             shape: MaterialStateProperty.all(
@@ -58,9 +65,9 @@ class SalesDrawer extends StatelessWidget {
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(50, 185, 215, 1),
+               cyan,
             ),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
+            foregroundColor: MaterialStateProperty.all(whiteColor),
             padding: MaterialStateProperty.all(
                 const EdgeInsets.fromLTRB(132, 10, 132, 10)),
             shape: MaterialStateProperty.all(
@@ -86,9 +93,9 @@ class SalesDrawer extends StatelessWidget {
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(50, 185, 215, 1),
+               cyan,
             ),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
+            foregroundColor: MaterialStateProperty.all(whiteColor),
             padding: MaterialStateProperty.all(
                 const EdgeInsets.fromLTRB(130, 10, 130, 10)),
             shape: MaterialStateProperty.all(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/home/user_home.dart';
+import '../../services/constrants.dart';
 import '../home/facilityPage/facility_page.dart';
 import '../home/support.dart';
 import '../home/task_info.dart';
@@ -39,10 +40,10 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
       floatingActionButton: Visibility(
         visible: MediaQuery.of(context).viewInsets.bottom == 0.0,
         child: FloatingActionButton(
-          backgroundColor: const Color.fromRGBO(50, 185, 215, 1),
+          backgroundColor: cyan,
           child: const ImageIcon(
             AssetImage('assets/icons/Scanned.png'),
-            color: Color(0xFF0268B2),
+            color: primaryBlue,
           ),
           onPressed: () {},
         ),
@@ -91,7 +92,8 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ImageIcon(const AssetImage('assets/icons/headphone.png'),
+                        ImageIcon(
+                            const AssetImage('assets/icons/headphone.png'),
                             color: _selectedIndex == 1
                                 ? const Color(0xFF0368B2)
                                 : const Color(0xFFC1C7D0)),

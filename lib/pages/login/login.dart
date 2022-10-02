@@ -4,6 +4,7 @@ import 'package:lastsaid/pages/login/phone_input.dart';
 import 'package:lastsaid/pages/login/pass.dart';
 import 'package:lastsaid/pages/components/round_checkbox.dart';
 
+import '../../services/constrants.dart';
 import '../components/bottom_navigator.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,9 +19,12 @@ class LoginScreen extends StatefulWidget {
 class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +37,7 @@ class LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontFamily: 'ArialRounded',
                     fontSize: 38.0,
-                    color: Colors.white,
+                    color: whiteColor,
                     fontWeight: FontWeight.bold,
                     shadows: <Shadow>[
                       Shadow(
@@ -48,7 +52,7 @@ class LoginScreenState extends State<LoginScreen> {
                   'المحاسبي',
                   style: TextStyle(
                     fontSize: 34.0,
-                    color: Colors.white,
+                    color: whiteColor,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'NotoRegular',
                     shadows: <Shadow>[
@@ -68,7 +72,7 @@ class LoginScreenState extends State<LoginScreen> {
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 fontFamily: 'NotoBold',
-                color: Colors.white,
+                color: whiteColor,
                 fontSize: 21,
               ),
             ),
@@ -78,13 +82,14 @@ class LoginScreenState extends State<LoginScreen> {
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                   ),
-                  mobileField(),
+                  mobileField(width, height),
                   Container(
                     margin: const EdgeInsets.only(top: 18),
                   ),
                   passwordFeild(),
                   Container(
-                    margin: const EdgeInsets.only(top: 20, bottom: 20, right: 25),
+                    margin:
+                        const EdgeInsets.only(top: 20, bottom: 20, right: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: const [
@@ -93,7 +98,7 @@ class LoginScreenState extends State<LoginScreen> {
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                             fontFamily: 'NotoBold',
-                            color: Colors.white,
+                            color: whiteColor,
                             fontSize: 14,
                           ),
                         ),
@@ -118,13 +123,13 @@ class LoginScreenState extends State<LoginScreen> {
                     );
                   },
                   style: TextButton.styleFrom(
-                    primary: Colors.white,
+                    primary: whiteColor,
                   ),
                   child: const Text(
                     'نسيت كلمة المرور ؟',
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: whiteColor,
                         decoration: TextDecoration.underline,
                         fontSize: 14.0,
                         fontFamily: 'NotoBold'),
@@ -135,17 +140,18 @@ class LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const PhoneInput()),
+                      MaterialPageRoute(
+                          builder: (context) => const PhoneInput()),
                     );
                   },
                   style: TextButton.styleFrom(
-                    primary: Colors.white,
+                    primary: whiteColor,
                   ),
                   child: const Text(
                     'ليس لديك حساب ؟ إضغط هنا للتسجيل ',
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: whiteColor,
                         decoration: TextDecoration.underline,
                         fontSize: 14.0,
                         fontFamily: 'NotoBold'),
@@ -156,14 +162,14 @@ class LoginScreenState extends State<LoginScreen> {
                   label: const Text(
                     'اللغة : العربية',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: whiteColor,
                         decoration: TextDecoration.underline,
                         fontSize: 15.0,
                         fontFamily: 'NotoBold'),
                   ),
                   onPressed: () {},
                   style: TextButton.styleFrom(
-                    primary: Colors.white,
+                    primary: whiteColor,
                   ),
                 ),
                 TextButton(
@@ -172,12 +178,12 @@ class LoginScreenState extends State<LoginScreen> {
                     },
                     style: ButtonStyle(
                         foregroundColor:
-                            MaterialStateProperty.all(Colors.white),
+                            MaterialStateProperty.all(whiteColor),
                         alignment: Alignment.centerLeft),
                     child: const Text(
                       'التواصل مع الدعم',
                       style: TextStyle(
-                          color: Colors.white,
+                          color: whiteColor,
                           decoration: TextDecoration.underline,
                           fontSize: 15.0,
                           fontFamily: 'NotoBold'),
@@ -190,9 +196,9 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget mobileField() {
+  Widget mobileField(double width, double height) {
     return SizedBox(
-      width: 350.0,
+      width: width * 0.80,
       child: TextFormField(
         textAlign: TextAlign.right,
         style: const TextStyle(
@@ -209,7 +215,7 @@ class LoginScreenState extends State<LoginScreen> {
               fontWeight: FontWeight.bold,
               fontFamily: 'NotoBold'),
           contentPadding: EdgeInsets.only(top: 25.0, left: 10, right: 10),
-          fillColor: Colors.white,
+          fillColor: whiteColor,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
@@ -239,7 +245,7 @@ class LoginScreenState extends State<LoginScreen> {
               fontWeight: FontWeight.bold,
               fontFamily: 'NotoBold'),
           contentPadding: EdgeInsets.only(top: 25.0, left: 10, right: 10),
-          fillColor: Colors.white,
+          fillColor: whiteColor,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
@@ -264,10 +270,10 @@ class LoginScreenState extends State<LoginScreen> {
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
         backgroundColor:
-            MaterialStateProperty.all(const Color.fromRGBO(50, 185, 215, 1)),
-        foregroundColor: MaterialStateProperty.all(Colors.white),
-        padding:
-            MaterialStateProperty.all(const EdgeInsets.fromLTRB(116, 11, 116, 11)),
+            MaterialStateProperty.all(cyan),
+        foregroundColor: MaterialStateProperty.all(whiteColor),
+        padding: MaterialStateProperty.all(
+            const EdgeInsets.fromLTRB(116, 11, 116, 11)),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(11),

@@ -8,6 +8,7 @@ import 'package:lastsaid/pages/components/number_roller.dart';
 import 'package:lastsaid/pages/components/styledWidgets/styled_container.dart';
 import 'package:lastsaid/pages/home/sales/bill_class.dart';
 import 'package:lastsaid/pages/home/sales/sale_list.dart';
+import '../../../services/constrants.dart';
 import '../../components/Dilalogs/dialogs.dart';
 import '../../components/styledWidgets/styled_texts.dart';
 
@@ -47,9 +48,9 @@ class _SalesState extends State<Sales> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customText(context, 'السعر', 11, false, 0xFF32b9d7),
-                    customText(context, 'الكمية', 11, false, 0xFF32b9d7),
-                    customText(context, 'العنصر', 11, false, 0xFF32b9d7),
+                    customText(context, 'السعر', 11, false, cyan),
+                    customText(context, 'الكمية', 11, false, cyan),
+                    customText(context, 'العنصر', 11, false, cyan),
                   ]),
             ),
           ),
@@ -72,7 +73,7 @@ class _SalesState extends State<Sales> {
                       SlidableAction(
                         onPressed: ((context) => {deleteDialog(index)}),
                         icon: Icons.do_disturb_on_rounded,
-                        foregroundColor: Color(0xffBE3939),
+                        foregroundColor: const Color(0xffBE3939),
                       ),
                     ]),
                     endActionPane:
@@ -80,7 +81,7 @@ class _SalesState extends State<Sales> {
                       SlidableAction(
                         onPressed: ((context) => {deleteDialog(index)}),
                         icon: Icons.do_disturb_on_rounded,
-                        foregroundColor: Color(0xffBE3939),
+                        foregroundColor: const Color(0xffBE3939),
                       ),
                     ]),
                     child: buildListTile(item),
@@ -90,16 +91,15 @@ class _SalesState extends State<Sales> {
             ),
           ),
           Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+                border: Border.all(color: Colors.grey.shade200),
               ),
-              border: Border.all(color: Colors.grey.shade200),
-            ),
-            child:tableFooter(context, 5.4625, 0.7125, 4.75)
-            ),
+              child: tableFooter(context, 5.4625, 0.7125, 4.75)),
         ],
       ),
     );
@@ -123,7 +123,7 @@ class _SalesState extends State<Sales> {
                           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                           child: AlertDialog(
                             backgroundColor:
-                                const Color.fromRGBO(50, 185, 215, 1),
+                                 cyan,
                             insetPadding:
                                 const EdgeInsets.fromLTRB(50, 0, 50, 0),
                             shape: const RoundedRectangleBorder(
@@ -163,7 +163,7 @@ class _SalesState extends State<Sales> {
                           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                           child: AlertDialog(
                             backgroundColor:
-                                const Color.fromRGBO(50, 185, 215, 1),
+                                 cyan,
                             insetPadding:
                                 const EdgeInsets.fromLTRB(50, 0, 50, 0),
                             shape: const RoundedRectangleBorder(
@@ -179,11 +179,11 @@ class _SalesState extends State<Sales> {
                       alignment: WrapAlignment.center,
                       children: [
                         customText(context, item.total.toString(), 12, false,
-                            0xFF76797B,
+                            lightGray,
                             weight: FontWeight.bold),
-                        customText(context, item.unit, 11, false, 0xFF76797B,
+                        customText(context, item.unit, 11, false, lightGray,
                             weight: FontWeight.bold),
-                        customText(context, item.name, 11, false, 0xFF76797B,
+                        customText(context, item.name, 11, false, lightGray,
                             weight: FontWeight.bold)
                       ],
                     ),
@@ -207,7 +207,7 @@ Widget myDivider(BuildContext context) {
       boxShadow: const [
         BoxShadow(
           blurRadius: 3,
-          color: Color(0x33000000),
+          color: transparentBlack,
           offset: Offset(0, 1),
         ),
       ],
@@ -219,20 +219,21 @@ Widget singleRow(BuildContext context, String title, double value) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      customText(context, value.toString(), 12, false, 0xFF76797B,
+      customText(context, value.toString(), 12, false, lightGray,
           weight: FontWeight.bold),
       const SizedBox(width: 4),
-      customText(context, title, 9, false, 0xFF8F8F8F,
+      customText(context, title, 9, false, secondaryGray,
           weight: FontWeight.bold, align: TextAlign.start)
     ],
   );
 }
 
-Widget tableFooter(BuildContext context, double result, double task, double total) {
+Widget tableFooter(
+    BuildContext context, double result, double task, double total) {
   return Column(
     children: [
       Container(
-        color: const Color(0xFF0268B2),
+        color: primaryBlue,
         width: double.infinity,
         child: Row(
           children: [
@@ -241,17 +242,17 @@ Widget tableFooter(BuildContext context, double result, double task, double tota
                 height: 24,
                 alignment: Alignment.center,
                 child: customText(
-                    context, 'المجموع النهائي', 11, false, 0xFF32b9d7)),
+                    context, 'المجموع النهائي', 11, false, cyan)),
             Container(
                 width: 100,
                 height: 24,
                 alignment: Alignment.center,
-                child: customText(context, 'الضريبة', 11, false, 0xFF32b9d7)),
+                child: customText(context, 'الضريبة', 11, false, cyan)),
             Container(
                 width: 119,
                 height: 24,
                 alignment: Alignment.center,
-                child: customText(context, 'الإجمالي', 11, false, 0xFF32b9d7)),
+                child: customText(context, 'الإجمالي', 11, false, cyan)),
           ],
         ),
       ),
@@ -260,21 +261,23 @@ Widget tableFooter(BuildContext context, double result, double task, double tota
           Container(
               alignment: Alignment.center,
               width: 119,
-              child: customText(context, result.toString(), 14, false, 0xFF0268B2,
+              child: customText(
+                  context, result.toString(), 14, false, primaryBlue,
                   weight: FontWeight.bold)),
           Container(
               alignment: Alignment.center,
               width: 100,
-              child: customText(context, task.toString(), 14, false, 0xFF0268B2,
+              child: customText(
+                  context, task.toString(), 14, false, primaryBlue,
                   weight: FontWeight.bold)),
           Container(
               alignment: Alignment.center,
               width: 119,
-              child: customText(context, total.toString(), 14, false, 0xFF0268B2,
+              child: customText(
+                  context, total.toString(), 14, false, primaryBlue,
                   weight: FontWeight.bold)),
         ],
       )
     ],
   );
 }
-

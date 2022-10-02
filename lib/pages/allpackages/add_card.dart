@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_buttons.dart';
 import '../components/styledWidgets/styled_container.dart';
 import '../components/switcher.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class AddCard extends StatelessWidget {
+class AddCard extends StatefulWidget {
   const AddCard({Key? key}) : super(key: key);
 
+  @override
+  State<AddCard> createState() => _AddCardState();
+}
+
+class _AddCardState extends State<AddCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
@@ -24,11 +30,11 @@ class AddCard extends StatelessWidget {
                 width: double.infinity,
                 height: 450,
                 decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 3,
-                        color: Color(0x33000000),
+                        color: transparentBlack,
                         offset: Offset(0, 1),
                       ),
                     ],
@@ -47,7 +53,7 @@ class AddCard extends StatelessWidget {
                           IconButton(
                               icon: const Icon(Icons.clear_rounded),
                               iconSize: 37,
-                              color: const Color(0xFF0268B2),
+                              color: primaryBlue,
                               onPressed: () {
                                 Navigator.pop(context);
                               }),
@@ -58,7 +64,7 @@ class AddCard extends StatelessWidget {
                               fontFamily: 'NotoBold',
                               fontSize: 21,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xFF0268B2),
+                              color: primaryBlue,
                             ),
                           ),
                         ],
@@ -70,7 +76,7 @@ class AddCard extends StatelessWidget {
                           fontFamily: 'NotoBold',
                           fontSize: 14,
                           fontWeight: FontWeight.w800,
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                         ),
                       ),
                       const SizedBox(height: 7),
@@ -83,7 +89,7 @@ class AddCard extends StatelessWidget {
                           fontFamily: 'NotoBold',
                           fontSize: 14,
                           fontWeight: FontWeight.w800,
-                          color: Color(0xFF0268B2),
+                          color: primaryBlue,
                         ),
                       ),
                       const SizedBox(height: 7),
@@ -93,14 +99,14 @@ class AddCard extends StatelessWidget {
                         height: 35,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: const Color(0xFFADEEFE),
+                          color: cyanLight,
                         ),
                         child: const TextField(
                           textAlign: TextAlign.end,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w800,
-                            color: Color(0xFF54B9FF),
+                            color: secondaryBlue,
                           ),
                           textInputAction: TextInputAction.next,
                           keyboardType: TextInputType.number,
@@ -113,7 +119,7 @@ class AddCard extends StatelessWidget {
                               fontFamily: 'NotoBold',
                               fontSize: 13,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xFF54B9FF),
+                              color: secondaryBlue,
                             ),
                             border: InputBorder.none,
                           ),
@@ -136,7 +142,7 @@ class AddCard extends StatelessWidget {
                                     fontFamily: 'NotoBold',
                                     fontSize: 14,
                                     fontWeight: FontWeight.w900,
-                                    color: Color(0xFF0268B2),
+                                    color: primaryBlue,
                                   ),
                                 ),
                               ),
@@ -147,13 +153,13 @@ class AddCard extends StatelessWidget {
                                 height: 35,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(6),
-                                  color: const Color(0xFFADEEFE),
+                                  color: cyanLight,
                                 ),
                                 child: const TextField(
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w800,
-                                    color: Color(0xFF54B9FF),
+                                    color: secondaryBlue,
                                   ),
                                   maxLength: 3,
                                   textAlign: TextAlign.end,
@@ -170,7 +176,7 @@ class AddCard extends StatelessWidget {
                                       fontFamily: 'NotoBold',
                                       fontSize: 13,
                                       fontWeight: FontWeight.w800,
-                                      color: Color(0xFF54B9FF),
+                                      color: secondaryBlue,
                                     ),
                                     border: InputBorder.none,
                                   ),
@@ -188,7 +194,7 @@ class AddCard extends StatelessWidget {
                                   fontFamily: 'NotoBold',
                                   fontSize: 13,
                                   fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                 ),
                               ),
                               const SizedBox(height: 4),
@@ -197,13 +203,13 @@ class AddCard extends StatelessWidget {
                                 height: 35,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(6),
-                                  color: const Color(0xFFADEEFE),
+                                  color: cyanLight,
                                 ),
                                 child: TextField(
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w800,
-                                    color: Color(0xFF54B9FF),
+                                    color: secondaryBlue,
                                   ),
                                   inputFormatters: [maskFormatter],
                                   textAlign: TextAlign.end,
@@ -220,7 +226,7 @@ class AddCard extends StatelessWidget {
                                       fontFamily: 'NotoBold',
                                       fontSize: 13,
                                       fontWeight: FontWeight.w800,
-                                      color: Color(0xFF54B9FF),
+                                      color: secondaryBlue,
                                     ),
                                     border: InputBorder.none,
                                   ),
@@ -244,7 +250,7 @@ class AddCard extends StatelessWidget {
                                 fontFamily: 'NotoBold',
                                 fontSize: 13,
                                 fontWeight: FontWeight.w800,
-                                color: Color(0xFF0268B2),
+                                color: primaryBlue,
                               ),
                             )
                           ],
@@ -252,11 +258,12 @@ class AddCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 19),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                          children:[outlineText(context, 'إضافة البطاقة', () {
-                            Navigator.pushNamed(context, '/successPay');
-                          }, top: 9.0, right: 20.0, size:13.0)]
-                      ),
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            outlineText(context, 'إضافة البطاقة', () {
+                              Navigator.pushNamed(context, '/successPay');
+                            }, top: 9.0, right: 20.0, size: 13.0)
+                          ]),
                     ],
                   ),
                 ),

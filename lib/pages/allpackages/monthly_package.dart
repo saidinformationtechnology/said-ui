@@ -2,33 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:lastsaid/pages/components/dropdown.dart';
 import 'package:lastsaid/pages/components/styledWidgets/styled_buttons.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_container.dart';
 
-class MonthlyPackage extends StatelessWidget {
+class MonthlyPackage extends StatefulWidget {
   const MonthlyPackage({Key? key}) : super(key: key);
 
   @override
+  State<MonthlyPackage> createState() => _MonthlyPackageState();
+}
+
+class _MonthlyPackageState extends State<MonthlyPackage> {
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0268B2),
+      backgroundColor: primaryBlue,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
           child: Column(
             children: [
-              const SizedBox(height: 18),
+              SizedBox(height: height * 0.02),
               paymentHeader(context),
-              const SizedBox(height: 230),
+              SizedBox(height: height * 0.30),
               Container(
                 width: double.infinity,
                 height: 450,
                 decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 3,
-                        color: Color(0x33000000),
+                        color: transparentBlack,
                         offset: Offset(0, 1),
                       ),
                     ],
@@ -60,7 +67,7 @@ class MonthlyPackage extends StatelessWidget {
                                       fontFamily: 'NotoBold',
                                       fontSize: 10,
                                       fontWeight: FontWeight.w800,
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                     ),
                                   ),
                                 )
@@ -72,7 +79,7 @@ class MonthlyPackage extends StatelessWidget {
                                   fontFamily: 'NotoBold',
                                   fontSize: 21,
                                   fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                 ),
                               ),
                             ],
@@ -90,7 +97,7 @@ class MonthlyPackage extends StatelessWidget {
                                     fontFamily: 'NotoBold',
                                     fontSize: 20,
                                     fontWeight: FontWeight.w800,
-                                    color: Color(0xFF0268B2),
+                                    color: primaryBlue,
                                   ),
                                 ),
                               ),
@@ -101,7 +108,7 @@ class MonthlyPackage extends StatelessWidget {
                                   fontFamily: 'NotoBold',
                                   fontSize: 50,
                                   fontWeight: FontWeight.w800,
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                 ),
                               ),
                               const SizedBox(width: 54),
@@ -115,7 +122,7 @@ class MonthlyPackage extends StatelessWidget {
                                     fontFamily: 'NotoBold',
                                     fontSize: 13,
                                     fontWeight: FontWeight.w800,
-                                    color: Color(0xFF0268B2),
+                                    color: primaryBlue,
                                   ),
                                 ),
                               )
@@ -132,7 +139,7 @@ class MonthlyPackage extends StatelessWidget {
                                 fontFamily: 'NotoBold',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w800,
-                                color: Color(0xFF0268B2),
+                                color: primaryBlue,
                               ),
                             ),
                           ),
@@ -143,7 +150,7 @@ class MonthlyPackage extends StatelessWidget {
                             height: 35,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(6),
-                              color: const Color(0xFFADEEFE),
+                              color: cyanLight,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -157,7 +164,7 @@ class MonthlyPackage extends StatelessWidget {
                                       fontFamily: 'NotoBold',
                                       fontSize: 13,
                                       fontWeight: FontWeight.w800,
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                     ),
                                   ),
                                 ),
@@ -181,7 +188,7 @@ class MonthlyPackage extends StatelessWidget {
                                         fontFamily: 'NotoBold',
                                         fontSize: 13,
                                         fontWeight: FontWeight.w800,
-                                        color: Color(0xFF54B9FF),
+                                        color: secondaryBlue,
                                       ),
                                       border: InputBorder.none,
                                     ),
@@ -200,7 +207,7 @@ class MonthlyPackage extends StatelessWidget {
                                 fontFamily: 'NotoBold',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w800,
-                                color: Color(0xFF0268B2),
+                                color: primaryBlue,
                               ),
                             ),
                           ),
@@ -211,7 +218,7 @@ class MonthlyPackage extends StatelessWidget {
                             height: 35,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(6),
-                              color: const Color(0xFFADEEFE),
+                              color: cyanLight,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -222,11 +229,10 @@ class MonthlyPackage extends StatelessWidget {
                           ),
                           const SizedBox(height: 30),
                           Container(
-                            margin: const EdgeInsets.only(left: 32),
-                            child: outlineText(context, 'إتمام الدفع', () {
+                              margin: const EdgeInsets.only(left: 32),
+                              child: outlineText(context, 'إتمام الدفع', () {
                                 Navigator.pushNamed(context, '/successPay');
-                              }, top:9, right:20)
-                          ),
+                              }, top: 9, right: 20)),
                         ],
                       ),
                     )

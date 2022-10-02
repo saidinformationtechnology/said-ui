@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../services/constrants.dart';
 import '../components/styledWidgets/styled_texts.dart';
 
-class TaskInfo extends StatelessWidget {
+class TaskInfo extends StatefulWidget {
   const TaskInfo({Key? key}) : super(key: key);
 
+  @override
+  State<TaskInfo> createState() => _TaskInfoState();
+}
+
+class _TaskInfoState extends State<TaskInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +42,12 @@ class TaskInfo extends StatelessWidget {
                           shadows: [
                             Shadow(
                               blurRadius: 10.0,
-                              color: Color(0x33000000),
+                              color: transparentBlack,
                               offset: Offset(0, 2),
                             ),
                           ],
                           fontFamily: 'NotoBold',
-                          color: Colors.white,
+                          color: whiteColor,
                           fontSize: 22),
                     ),
                     const Text(
@@ -51,12 +57,12 @@ class TaskInfo extends StatelessWidget {
                           shadows: [
                             Shadow(
                               blurRadius: 10.0,
-                              color: Color(0x33000000),
+                              color: transparentBlack,
                               offset: Offset(0, 2),
                             ),
                           ],
                           fontFamily: 'NotoBold',
-                          color: Colors.white,
+                          color: whiteColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w800),
                     ),
@@ -68,11 +74,11 @@ class TaskInfo extends StatelessWidget {
                 width: double.infinity,
                 height: 80,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: whiteColor,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
+                      color: transparentBlack,
                       offset: Offset(0, 1),
                     ),
                   ],
@@ -90,7 +96,7 @@ class TaskInfo extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: customText(
-                            context, '23,568', 19, false, 0xFF0268B2,
+                            context, '23,568', 19, false, primaryBlue,
                             align: TextAlign.start, weight: FontWeight.bold),
                       ),
                       Container(
@@ -101,7 +107,7 @@ class TaskInfo extends StatelessWidget {
                           ),
                           height: 80),
                       customText(
-                          context, 'إجمالي  الإيرادات', 17, false, 0xFF0268B2,
+                          context, 'إجمالي  الإيرادات', 17, false, primaryBlue,
                           align: TextAlign.start, weight: FontWeight.bold),
                     ],
                   ),
@@ -111,11 +117,11 @@ class TaskInfo extends StatelessWidget {
                 width: double.infinity,
                 height: 80,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: whiteColor,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
+                      color: transparentBlack,
                       offset: Offset(0, 1),
                     ),
                   ],
@@ -133,7 +139,7 @@ class TaskInfo extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: customText(
-                            context, '23,568', 19, false, 0xFF0268B2,
+                            context, '23,568', 19, false, primaryBlue,
                             align: TextAlign.start, weight: FontWeight.bold),
                       ),
                       Container(
@@ -144,7 +150,7 @@ class TaskInfo extends StatelessWidget {
                           ),
                           height: 80),
                       customText(
-                          context, 'إجمالي المصروفات', 17, false, 0xFF0268B2,
+                          context, 'إجمالي المصروفات', 17, false, primaryBlue,
                           align: TextAlign.start, weight: FontWeight.bold),
                     ],
                   ),
@@ -157,11 +163,11 @@ class TaskInfo extends StatelessWidget {
                 width: double.infinity,
                 height: 80,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     boxShadow: const [
                       BoxShadow(
                         blurRadius: 3,
-                        color: Color(0x33000000),
+                        color: transparentBlack,
                         offset: Offset(0, 1),
                       ),
                     ],
@@ -176,7 +182,7 @@ class TaskInfo extends StatelessWidget {
                         // color:Colors.red,
                         width: 100,
                         child: customText(
-                            context, '23,568', 19, false, 0xFF0268B2,
+                            context, '23,568', 19, false, primaryBlue,
                             align: TextAlign.start, weight: FontWeight.bold),
                       ),
                       Container(
@@ -186,7 +192,7 @@ class TaskInfo extends StatelessWidget {
                           ),
                           height: 80),
                       customText(
-                          context, 'إجمالي الضريبة', 17, false, 0xFF0268B2,
+                          context, 'إجمالي الضريبة', 17, false, primaryBlue,
                           align: TextAlign.start, weight: FontWeight.bold),
                     ],
                   ),
@@ -210,12 +216,12 @@ Widget printIcon(BuildContext context) {
       children: [
         const Icon(
           Icons.print_sharp,
-          color: Colors.white,
+          color: whiteColor,
           size: 24,
         ),
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-          child: customText(context, 'طباعة', 15, false, 0xFFFFFFFF,
+          child: customText(context, 'طباعة', 15, false, whiteColor,
               align: TextAlign.start),
         ),
       ],

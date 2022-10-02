@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 
 import 'package:lastsaid/pages/home/bills_menu/bill_table.dart';
 
+import '../../../services/constrants.dart';
+
 class SalesMenu extends StatefulWidget {
   const SalesMenu({Key? key}) : super(key: key);
 
@@ -27,7 +29,7 @@ class _SalesMenuState extends State<SalesMenu> {
           builder: (context) => IconButton(
               icon: Image.asset('assets/icons/clear1.png'),
               iconSize: 40,
-              // color: Color(0xFF0268B2),
+              // color: primaryBlue,
               onPressed: () {
                 Navigator.pop(context);
               }),
@@ -39,7 +41,7 @@ class _SalesMenuState extends State<SalesMenu> {
             child: Text(
               'ميني سوبر ماركت',
               style: TextStyle(
-                  color: Color(0xFF0268B2),
+                  color: primaryBlue,
                   fontSize: 18.0,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'NotoBold'),
@@ -61,7 +63,7 @@ class _SalesMenuState extends State<SalesMenu> {
                   Text(
                     time,
                     style: const TextStyle(
-                      color: Color(0xFF76797B),
+                      color: lightGray,
                       fontSize: 12.5,
                       fontWeight: FontWeight.bold,
                     ),
@@ -69,7 +71,7 @@ class _SalesMenuState extends State<SalesMenu> {
                   Text(
                     ', $date',
                     style: const TextStyle(
-                      color: Color(0xFF76797B),
+                      color: lightGray,
                       fontSize: 12.5,
                       fontWeight: FontWeight.bold,
                     ),
@@ -83,13 +85,13 @@ class _SalesMenuState extends State<SalesMenu> {
                   Container(
                       padding: const EdgeInsets.fromLTRB(20, 7, 20, 7),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: whiteColor,
                         borderRadius: BorderRadius.circular(13),
                         border: Border.all(color: Colors.grey.shade200),
                         boxShadow: const [
                           BoxShadow(
                             blurRadius: 3,
-                            color: Color(0x33000000),
+                            color: transparentBlack,
                             offset: Offset(0, 1),
                           ),
                         ],
@@ -97,7 +99,7 @@ class _SalesMenuState extends State<SalesMenu> {
                       child: const Text(
                         'قائمة فواتير المبيعات',
                         style: TextStyle(
-                            color: Color(0xFF0268B2),
+                            color: primaryBlue,
                             fontSize: 14.0,
                             fontFamily: 'NotoBold'),
                       )),
@@ -113,13 +115,13 @@ class _SalesMenuState extends State<SalesMenu> {
                       width: 110,
                       height: 25,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: whiteColor,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Colors.grey.shade200),
                         boxShadow: const [
                           BoxShadow(
                             blurRadius: 3,
-                            color: Color(0x33000000),
+                            color: transparentBlack,
                             offset: Offset(0, 1),
                           ),
                         ],
@@ -147,8 +149,8 @@ class _SalesMenuState extends State<SalesMenu> {
                                 color: Colors.grey.shade500,
                                 fontSize: 8),
                             border: InputBorder.none,
-                            suffixIconConstraints:
-                                const BoxConstraints(minHeight: 17, minWidth: 17),
+                            suffixIconConstraints: const BoxConstraints(
+                                minHeight: 17, minWidth: 17),
                             suffixIcon: const Padding(
                               padding: EdgeInsets.only(right: 7),
                               child: ImageIcon(
@@ -163,13 +165,13 @@ class _SalesMenuState extends State<SalesMenu> {
                         Container(
                           padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: whiteColor,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.grey.shade200),
                             boxShadow: const [
                               BoxShadow(
                                 blurRadius: 3,
-                                color: Color(0x33000000),
+                                color: transparentBlack,
                                 offset: Offset(0, 1),
                               ),
                             ],
@@ -194,7 +196,7 @@ class _SalesMenuState extends State<SalesMenu> {
                               children: [
                                 const ImageIcon(
                                   AssetImage('assets/icons/date.png'),
-                                  color: Color(0xFF0268B2),
+                                  color: primaryBlue,
                                   size: 11,
                                 ),
                                 const SizedBox(width: 2),
@@ -204,7 +206,7 @@ class _SalesMenuState extends State<SalesMenu> {
                                       '${toDate.year}/${toDate.month}/${toDate.day}',
                                       style: const TextStyle(
                                         fontFamily: 'NotoBold',
-                                        color: Color(0xFF0268B2),
+                                        color: primaryBlue,
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600,
                                       )),
@@ -217,7 +219,7 @@ class _SalesMenuState extends State<SalesMenu> {
                         const Text('إلى',
                             style: TextStyle(
                               fontFamily: 'NotoBold',
-                              color: Color(0xFF0268B2),
+                              color: primaryBlue,
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
                             ))
@@ -227,13 +229,13 @@ class _SalesMenuState extends State<SalesMenu> {
                       Container(
                         padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: whiteColor,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(color: Colors.grey.shade200),
                           boxShadow: const [
                             BoxShadow(
                               blurRadius: 3,
-                              color: Color(0x33000000),
+                              color: transparentBlack,
                               offset: Offset(0, 1),
                             ),
                           ],
@@ -257,7 +259,7 @@ class _SalesMenuState extends State<SalesMenu> {
                             children: [
                               const ImageIcon(
                                 AssetImage('assets/icons/date.png'),
-                                color: Color(0xFF0268B2),
+                                color: primaryBlue,
                                 size: 11,
                               ),
                               const SizedBox(width: 2),
@@ -267,7 +269,7 @@ class _SalesMenuState extends State<SalesMenu> {
                                     '${fromDate.year}/${fromDate.month}/${fromDate.day}',
                                     style: const TextStyle(
                                       fontFamily: 'NotoBold',
-                                      color: Color(0xFF0268B2),
+                                      color: primaryBlue,
                                       fontSize: 11,
                                       fontWeight: FontWeight.w600,
                                     )),
@@ -280,7 +282,7 @@ class _SalesMenuState extends State<SalesMenu> {
                       const Text('من',
                           style: TextStyle(
                             fontFamily: 'NotoBold',
-                            color: Color(0xFF0268B2),
+                            color: primaryBlue,
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
                           )),

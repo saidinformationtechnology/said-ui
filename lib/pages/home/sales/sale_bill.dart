@@ -5,7 +5,12 @@ import 'package:lastsaid/pages/home/sales/sales_widget.dart';
 
 import '../../components/styledWidgets/styled_buttons.dart';
 
-class SaleBill extends StatelessWidget {
+class SaleBill extends StatefulWidget {
+  @override
+  State<SaleBill> createState() => _SaleBillState();
+}
+
+class _SaleBillState extends State<SaleBill> {
   @override
   Widget build(BuildContext context) {
     return Column(
